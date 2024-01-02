@@ -163,3 +163,12 @@ Decidi que o shader permitira um máximo de 7 ondas simultâneas:
 Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/18KxEmDjmmkRf2Alndq7GpWrjbjcEhu6O/view?usp=sharing)
 
 Demonstração do efeito com rotação: [Vídeo](https://drive.google.com/file/d/1Kz_kpQA-vv305fSEpCzc_p0d8Rl1MWBe/view?usp=sharing)
+
+Em seguida decidi que já estava farto dos tijolos, então comecei a trabalhar para fazer um efeito para o escudo, primeiro deparei-me com este tutorial:
+
+[Unity Shader Graph - Sci-Fi Barrier / Shield Tutorial](https://www.youtube.com/watch?v=rB4YMQmO8Mw&t=3s&ab_channel=GabrielAguiarProd.) - Repliquei o tutorial e percebi melhor como funcionava o *noise* e os padrões procedimentais. 
+
+Depois de muitos testes e exprimentações criei o seguinte shader:
+
+![Cell Shader](https://media.discordapp.net/attachments/267705945377734667/1191853749472350268/image.png?ex=65a6f34d&is=65947e4d&hm=020ae28a6005194543573027b3eefe78a37411626dbeadee6c2ae117a0d80a87&=&format=webp&quality=lossless&width=1193&height=676)
+
