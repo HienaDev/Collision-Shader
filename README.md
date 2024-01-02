@@ -54,7 +54,7 @@ Depois disto achei que já tinha material suficiente para começar o meu shader.
 ### **Comecei a fazer o meu shader:**
 
 Criei um timer que me permite ir de 0 a 1 com a função sen:
-![Timer Sin](https://media.discordapp.net/attachments/1163146681064357908/1191715765779435540/image.png?ex=65a672cb&is=6593fdcb&hm=fc890a77960514cf269a99bc0620b963f4d4d13364db0aaae7a7b193e04c1e0f&=&format=webp&quality=lossless&width=752&height=317)
+![Timer Sin](https://media.discordapp.net/attachments/1163146681064357908/1191731228030795877/image.png?ex=65a68132&is=65940c32&hm=ad78c97a8120f0bcace8d953803991cc787aef3f74d375555e10e55592207bee&=&format=webp&quality=lossless&width=1348&height=550)
 
 Em vez de usar diretamente o sine time, usamos o multiply pelo meio, para podemos alterar a frequência do time, e depois fazemos o sine, assim mantemos o intervalo entre 0 e 1 mas mudamos quanto oscila por segundo.
 Criei isto com o intuito de começar por ter um bubbling effect, então a oscilação constante do sen era perfeita para isso.
