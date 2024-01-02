@@ -8,7 +8,6 @@ public class DetectCollision : MonoBehaviour
 {
 
     private Material material;
-    private float progression;
 
     private Vector3 defaultFocalPoint;
 
@@ -16,17 +15,20 @@ public class DetectCollision : MonoBehaviour
 
     private int index;
 
+    [SerializeField] private bool destroyCollidedObjects;
+
     // Start is called before the first frame update
     void Start()
     {
         material = GetComponent<MeshRenderer>().material;
 
-        progression = 0;
 
         defaultFocalPoint = new Vector3(0f, 0f, 0f);
 
-        material.SetVector("_FocalPoint0", defaultFocalPoint);
-        material.SetVector("_FocalPoint1", defaultFocalPoint);
+        for (int i = 0; i < maxFocalPoints; i++)
+        {
+            material.SetVector($"_FocalPoint{i}", defaultFocalPoint);
+        }
 
         index = 0;
     }
@@ -39,39 +41,19 @@ public class DetectCollision : MonoBehaviour
         {
             float aux = material.GetFloat($"_Progression{i}");
 
-
             if (aux > 0 && aux < 1)
             {
                 aux += 1f * Time.deltaTime;
                 material.SetFloat($"_Progression{i}", aux);
             }
 
-            
-
             if (aux >= 1)
             {
- 
+                material.SetFloat($"_Progression{i}", 0);
                 material.SetVector($"_FocalPoint{i}", defaultFocalPoint);
             }
         }
             
-
-
-
-
-        //if (progression > 0 && progression < 1)
-        //{
-        //    progression += 1f * Time.deltaTime;
-        //    material.SetFloat("_Progression0", progression);
-        //}
-
-        //if (progression >= 1)
-        //{ 
-        //    progression = 0f;
-        //    material.SetVector("_FocalPoint0", defaultFocalPoint);
-        //}
-
-
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -87,7 +69,9 @@ public class DetectCollision : MonoBehaviour
 
             index++;
 
-            Destroy(collision.gameObject);
+            //if (index == int.MaxValue) index = 0;
+
+            if (destroyCollidedObjects) Destroy(collision.gameObject);
         }
     
     }

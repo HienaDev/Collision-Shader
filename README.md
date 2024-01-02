@@ -109,10 +109,45 @@ Temos agora o efeito pretendido, mas não o queremos a repetir com o tempo como 
 
 Antes disso, criei um subshader mais organizado para o efeito.
 Este subshader recebe cinco variaveis:
-- Progression: Distância do ponto de impacto entre 0 e 1, em que 0 é no ponto de impacto e 1 o ponto final.
-- Focalpoint: O ponto inicial de impacto
-- Amplitude: A altura da onda
-- Size: O tamanho da onda
-- Frequency: Quão rapido a onda se propaga
+- Progression: Distância do ponto de impacto entre 0 e 1, em que 0 é no ponto de impacto e 1 o ponto final;
+- Focalpoint: O ponto inicial de impacto;
+- Amplitude: A altura da onda;
+- Size: O tamanho da onda;
+- Frequency: Quão rapido a onda se propaga.
+
+O subshader devolve o anel para ser desenhado.
 
 ![SubShader](https://media.discordapp.net/attachments/1163146681064357908/1191734097752621056/image.png?ex=65a683de&is=65940ede&hm=2b0cdf50d9436bc1ab9856c407de9fff2280546a9cdeb6799d72c4f485d095fa&=&format=webp&quality=lossless&width=1440&height=442)
+
+Agora com o subshader feito, vamos criar o script que deteta as colisões e dá os dados da mesma ao shader:
+
+No nosso script temos 4 variáveis:
+- material: O material do nosso objeto, que neste caso tem que ter o shader criado anteriormente;
+- defaultFocalPoint: Esta variável é criada como a posição nula, para quando a onda termina, voltarmos a posição inicial para evitar deformações;
+- maxFocalPoints: Isto define quantas ondas permitimos ao mesmo tempo no nosso objeto, terá sempre um *hard limit* definido pelo shader;
+- index: Quando temos mais que uma onda, o index permite percorrer cada onda para ser desenhada, caso cheguemos ao limite definido pelo maxFocalPoints, a primeira onda será substituida pela nova onda;
+- destroyCollidedObjects: Um booleano que da a opção ao utilizar de destruir os objetos que colidem com o objeto ou não.
+
+![Variables script](https://media.discordapp.net/attachments/1163146681064357908/1191739885535633430/image.png?ex=65a68942&is=65941442&hm=980c119cdfc298299638e54fcf11d00b2fef2c58261201779feb96c8f69fbab3&=&format=webp&quality=lossless&width=633&height=248)
+
+Assim que o programa corre, recebemos o material no objeto, definimos o defaultFocalPoint para dar reset as ondas, e damos este defaultFocalPoint para o focal point de cada onda para que comece tudo sem ondas. Inicializamos também o índice a 0.
+
+![Start Method](https://media.discordapp.net/attachments/1163146681064357908/1191737523362336788/image.png?ex=65a6870e&is=6594120e&hm=6efd582b1e89373957e93fe0fb3808bac06d5d90b334405b879368f38e2488f7&=&format=webp&quality=lossless&width=748&height=403)
+
+Durante o update, percorremos todos as ondas possíveis, crio uma variavel auxiliar para guardar a progressão da onda atual. 
+Depois verifico se esta progressão está compreendida entre 0 e 1, se sim, incrementamos e multiplicamos pelo Time.deltaTime para que seja constante entre dispositivos, e não depender da frame rate. Depois atualizamos o valor da progressão da onda atual por este valor.
+Caso a progressão seja maior ou igual a 1, voltamos a pôr a onda na posição inicial, e mudamos a progressão para 0 que é também o valor inicial da progressão
+
+![Update Method](https://media.discordapp.net/attachments/1163146681064357908/1191741367395823636/image.png?ex=65a68aa3&is=659415a3&hm=7fd02f252ca45944d804f63474a543126b1a170ff668d57ae465e14c7e71039a&=&format=webp&quality=lossless&width=815&height=580)
+
+Quando detetamos uma colisão, recebemos todos os contact points desta colisão, e onde eles ocorrerem queremos iniciar uma onda. Para isso, usamos o InverseTransformPoint que nos dá a posição local, em relação ao transform do objeto em que o script está, do ponto de colisão. Damos este posição ao primeiro FocalPoint disponível, que no caso duma primeira colisão seria o 0.
+
+Uso aqui também a expressão "index % maxFocalPoints" que me dará apenas o resto da divisão pelos focalPoints, garantido assim que apenas verificaremos o número de waves maximas definidas pelo script. Se por exemplo tivéssemos maxFocalPoints = 3, teríamos sempre os valores 0, 1 e 2.
+
+Depois disto inicializo o valor da progressão a 0.001, para que o Update saiba que tem que começar a incrementar a progressão naquele nível.
+
+Pensei também que poderia ser necessário, caso o programa corresse durante muito tempo, haver uma verificação pela valor máximo de int, caso houvesse 2147483647 colisões, mas para esta situação assumi que isto seria um caso extremamente raro, então deixei apenas comentado para que não fosse completamente descartado.
+
+Decidi dar a opção ao utilizador se quer que os objetos colididos sejam destruídos ou não.
+
+![Collision Detection](https://media.discordapp.net/attachments/1163146681064357908/1191740141325275207/image.png?ex=65a6897f&is=6594147f&hm=df144128c3a6c11dcd67483f1e43d028fd697930ad50ed0d0bcd729109580861&=&format=webp&quality=lossless&width=1281&height=502)
