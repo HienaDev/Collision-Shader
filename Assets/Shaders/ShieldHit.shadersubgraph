@@ -14,9 +14,6 @@
         },
         {
             "m_Id": "6cc9d1483ee44e73882866767d8c6a37"
-        },
-        {
-            "m_Id": "4d1acf0ccb31400cbeb3f2d8c5556d66"
         }
     ],
     "m_Keywords": [],
@@ -747,34 +744,6 @@
     },
     "m_Property": {
         "m_Id": "21a836634cd242b9b5076b8e6cc7e97a"
-    }
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "4d1acf0ccb31400cbeb3f2d8c5556d66",
-    "m_Guid": {
-        "m_GuidSerialized": "d5078f7f-1a5e-4572-afdd-752fedad785e"
-    },
-    "m_Name": "Frequency",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Frequency",
-    "m_DefaultReferenceName": "_Frequency",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_DismissedVersion": 0,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 1.0,
-    "m_FloatType": 0,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
     }
 }
 
@@ -1965,9 +1934,6 @@
         },
         {
             "m_Id": "6cc9d1483ee44e73882866767d8c6a37"
-        },
-        {
-            "m_Id": "4d1acf0ccb31400cbeb3f2d8c5556d66"
         }
     ]
 }

@@ -156,3 +156,10 @@ Depois disto, para que o shader permitisse mais que uma onda, tive que criar mai
 
 ![Variables Shader](https://media.discordapp.net/attachments/1163146681064357908/1191805070132658367/image.png?ex=65a6c5f7&is=659450f7&hm=a8ede5e63669c2e60111ca7483fb29821154ebc64056f74d7f9e43d26ba72564&=&format=webp&quality=lossless&width=276&height=670)
 
+Decidi que o shader permitira um máximo de 7 ondas simultâneas:
+
+![7 Waves](https://media.discordapp.net/attachments/267705945377734667/1191822323460870234/image.png?ex=65a6d608&is=65946108&hm=893ac8d967d5f6cf53d388ccd50b95e1345009dbaafc03f1c203dd2d90000ccc&=&format=webp&quality=lossless&width=1213&height=668)
+
+Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/18KxEmDjmmkRf2Alndq7GpWrjbjcEhu6O/view?usp=sharing)
+
+Demonstração do efeito com rotação: [Vídeo](https://drive.google.com/file/d/1Kz_kpQA-vv305fSEpCzc_p0d8Rl1MWBe/view?usp=sharing)
