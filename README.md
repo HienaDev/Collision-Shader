@@ -79,8 +79,10 @@ Recebemos o valor para a progressão da onda, ou seja onde está o anel, e usamo
 
 
 
-Depois disso, crio uma secção à parte, esta secção vai me dar
+Depois disso, crio uma secção à parte, esta secção recebe o ponto de impacto (FocalPoint), normaliza este vetor para obter a direção, e neste caso, como estamos a aplicar uma esfera, dividimos por 2, pois queremos o comprimento de vetor a 0.5, já que o raio da esfera seria 0.5 e o diâmetro 1, as posições da mesh estão sempre compreendidas entre -0.5 e 0.5. Depois subtraímos a direção pela posição no objeto, para termos a posição inicial da shockwave no objeto. O node da length dá-nos a distância até esta posição inicial no objeto:
 
 ![Nodes for focal point](https://media.discordapp.net/attachments/1163146681064357908/1191719421551583293/image.png?ex=65a67633&is=65940133&hm=92cedcc69fa72013445ccdcda41f7ebbbfda8c5eee2b002fd4c3015b16e6b37c&=&format=webp&quality=lossless&width=1077&height=668)
 
+Criei um node smoothstep para receber estes inputs, ao receber o add e o subtract, obtemos os limites do nosso anel e a length dá-nos o ponto inicial a partir de qual o anel se afasta e expande ao longo da mesh:
 
+![Smoothstep Node](https://media.discordapp.net/attachments/1163146681064357908/1191725059522441318/image.png?ex=65a67b73&is=65940673&hm=7d76d4e329af7f3825b69a8676e4e24f8ffc776277d1e37f4129d172bce63e37&=&format=webp&quality=lossless&width=593&height=668)
