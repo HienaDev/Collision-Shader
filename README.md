@@ -125,19 +125,20 @@ No nosso script temos 4 variáveis:
 - defaultFocalPoint: Esta variável é criada como a posição nula, para quando a onda termina, voltarmos a posição inicial para evitar deformações;
 - maxFocalPoints: Isto define quantas ondas permitimos ao mesmo tempo no nosso objeto, terá sempre um *hard limit* definido pelo shader;
 - index: Quando temos mais que uma onda, o index permite percorrer cada onda para ser desenhada, caso cheguemos ao limite definido pelo maxFocalPoints, a primeira onda será substituida pela nova onda;
-- destroyCollidedObjects: Um booleano que da a opção ao utilizar de destruir os objetos que colidem com o objeto ou não.
+- destroyCollidedObjects: Um booleano que da a opção ao utilizar de destruir os objetos que colidem com o objeto ou não;
+- frequency: Quão rapido a onda se propaga.
 
-![Variables script](https://media.discordapp.net/attachments/1163146681064357908/1191739885535633430/image.png?ex=65a68942&is=65941442&hm=980c119cdfc298299638e54fcf11d00b2fef2c58261201779feb96c8f69fbab3&=&format=webp&quality=lossless&width=633&height=248)
+![Variables script](https://media.discordapp.net/attachments/1163146681064357908/1191816442946002994/image.png?ex=65a6d08e&is=65945b8e&hm=4331287f3d2dfb8c6447b8320c47b01212e7a5212adb24f6e37f322473ca78c0&=&format=webp&quality=lossless&width=615&height=293)
 
 Assim que o programa corre, recebemos o material no objeto, definimos o defaultFocalPoint para dar reset as ondas, e damos este defaultFocalPoint para o focal point de cada onda para que comece tudo sem ondas. Inicializamos também o índice a 0.
 
 ![Start Method](https://media.discordapp.net/attachments/1163146681064357908/1191737523362336788/image.png?ex=65a6870e&is=6594120e&hm=6efd582b1e89373957e93fe0fb3808bac06d5d90b334405b879368f38e2488f7&=&format=webp&quality=lossless&width=748&height=403)
 
 Durante o update, percorremos todos as ondas possíveis, crio uma variavel auxiliar para guardar a progressão da onda atual. 
-Depois verifico se esta progressão está compreendida entre 0 e 1, se sim, incrementamos e multiplicamos pelo Time.deltaTime para que seja constante entre dispositivos, e não depender da frame rate. Depois atualizamos o valor da progressão da onda atual por este valor.
+Depois verifico se esta progressão está compreendida entre 0 e 1, se sim, incrementamos e multiplicamos a incrementação pela frequencia e pelo Time.deltaTime para que seja constante entre dispositivos, e não depender da frame rate. Depois atualizamos o valor da progressão da onda atual por este valor.
 Caso a progressão seja maior ou igual a 1, voltamos a pôr a onda na posição inicial, e mudamos a progressão para 0 que é também o valor inicial da progressão
 
-![Update Method](https://media.discordapp.net/attachments/1163146681064357908/1191741367395823636/image.png?ex=65a68aa3&is=659415a3&hm=7fd02f252ca45944d804f63474a543126b1a170ff668d57ae465e14c7e71039a&=&format=webp&quality=lossless&width=815&height=580)
+![Update Method](https://media.discordapp.net/attachments/1163146681064357908/1191816652078207089/image.png?ex=65a6d0c0&is=65945bc0&hm=285a5095623d0d9aa575ecddf0772b6315e37c9cb1717fb56585c603efd68fbc&=&format=webp&quality=lossless&width=788&height=650)
 
 Quando detetamos uma colisão, recebemos todos os contact points desta colisão, e onde eles ocorrerem queremos iniciar uma onda. Para isso, usamos o InverseTransformPoint que nos dá a posição local, em relação ao transform do objeto em que o script está, do ponto de colisão. Damos este posição ao primeiro FocalPoint disponível, que no caso duma primeira colisão seria o 0.
 
