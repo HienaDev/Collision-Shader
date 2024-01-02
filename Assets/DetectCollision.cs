@@ -17,6 +17,8 @@ public class DetectCollision : MonoBehaviour
 
     [SerializeField] private bool destroyCollidedObjects;
 
+    [SerializeField] private float frequency;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class DetectCollision : MonoBehaviour
         for (int i = 0; i < maxFocalPoints; i++)
         {
             material.SetVector($"_FocalPoint{i}", defaultFocalPoint);
+            material.SetFloat($"_Progression{i}", 0);
         }
 
         index = 0;
@@ -39,11 +42,14 @@ public class DetectCollision : MonoBehaviour
 
         for (int i = 0; i < maxFocalPoints; i++)
         {
+
+            Debug.Log(i);
+
             float aux = material.GetFloat($"_Progression{i}");
 
             if (aux > 0 && aux < 1)
             {
-                aux += 1f * Time.deltaTime;
+                aux += 1f * frequency * Time.deltaTime;
                 material.SetFloat($"_Progression{i}", aux);
             }
 
@@ -61,13 +67,17 @@ public class DetectCollision : MonoBehaviour
         foreach (ContactPoint  point in collision.contacts)
         {
             
-            Debug.Log(transform.InverseTransformPoint(point.point));
+            //Debug.Log(transform.InverseTransformPoint(point.point));
 
             material.SetVector($"_FocalPoint{index % maxFocalPoints}", transform.InverseTransformPoint(point.point));
 
             material.SetFloat($"_Progression{index % maxFocalPoints}", 0.001f);
 
+            
+
             index++;
+
+            
 
             //if (index == int.MaxValue) index = 0;
 

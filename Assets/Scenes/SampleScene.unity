@@ -156,6 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxFocalPoints: 2
+  destroyCollidedObjects: 0
+  frequency: 0
 --- !u!65 &193670825
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -258,7 +260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &247419205
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -344,7 +346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &263723924
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -586,7 +588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &393555618
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -810,7 +812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &538102304
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -911,6 +913,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxFocalPoints: 2
+  destroyCollidedObjects: 0
+  frequency: 0
 --- !u!1 &669833317
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &669833318
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1035,7 +1039,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &720372101
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1244,7 +1248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootable: {fileID: 5991101982733948771, guid: b6a035621ad709444abd9482a0e45335,
     type: 3}
-  timeBetweenShots: 0.5
+  timeBetweenShots: 1
 --- !u!1 &998611528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,7 +1267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &998611529
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1368,7 +1372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1020372316
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1473,7 +1477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1112484557
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1579,7 +1583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1177180402
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1680,6 +1684,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxFocalPoints: 2
+  destroyCollidedObjects: 0
+  frequency: 0
 --- !u!1 &1297425704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,7 +1810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1322958749
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2018,6 +2024,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aa2831805841c384899c202514acadd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2041,7 +2052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1486619638
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2146,7 +2157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1490993835
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2251,7 +2262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1517372313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2320,7 +2331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1539092207
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2426,7 +2437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1672771707
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2531,7 +2542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1686928355
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2636,7 +2647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1824895797
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2741,7 +2752,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &2063176674
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2860,8 +2871,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.55, y: -0.7277317, z: -0.41}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1350813477}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2877,7 +2888,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198ed4de4e3a0f94eba5fd4035f1ed8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxFocalPoints: 3
+  maxFocalPoints: 5
+  destroyCollidedObjects: 1
+  frequency: 1
 --- !u!135 &2070863607
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3001,8 +3014,8 @@ SceneRoots:
   - {fileID: 1686928358}
   - {fileID: 1322958752}
   - {fileID: 1350813477}
+  - {fileID: 1297425708}
   - {fileID: 720372105}
   - {fileID: 538102307}
   - {fileID: 1177180405}
-  - {fileID: 1297425708}
   - {fileID: 193670828}

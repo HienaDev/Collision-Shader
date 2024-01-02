@@ -113,11 +113,10 @@ Este subshader recebe cinco variaveis:
 - Focalpoint: O ponto inicial de impacto;
 - Amplitude: A altura da onda;
 - Size: O tamanho da onda;
-- Frequency: Quão rapido a onda se propaga.
 
 O subshader devolve o anel para ser desenhado.
 
-![SubShader](https://media.discordapp.net/attachments/1163146681064357908/1191734097752621056/image.png?ex=65a683de&is=65940ede&hm=2b0cdf50d9436bc1ab9856c407de9fff2280546a9cdeb6799d72c4f485d095fa&=&format=webp&quality=lossless&width=1440&height=442)
+![SubShader](https://media.discordapp.net/attachments/1163146681064357908/1191816005484286033/image.png?ex=65a6d026&is=65945b26&hm=d80b4b31cfc8b9441a76b6e047f1d59048a6f3c02dba2e52b8bfa9fcc8144e97&=&format=webp&quality=lossless&width=1440&height=526)
 
 Agora com o subshader feito, vamos criar o script que deteta as colisões e dá os dados da mesma ao shader:
 
@@ -151,3 +150,8 @@ Pensei também que poderia ser necessário, caso o programa corresse durante mui
 Decidi dar a opção ao utilizador se quer que os objetos colididos sejam destruídos ou não.
 
 ![Collision Detection](https://media.discordapp.net/attachments/1163146681064357908/1191740141325275207/image.png?ex=65a6897f&is=6594147f&hm=df144128c3a6c11dcd67483f1e43d028fd697930ad50ed0d0bcd729109580861&=&format=webp&quality=lossless&width=1281&height=502)
+
+Depois disto, para que o shader permitisse mais que uma onda, tive que criar mais variaveis:
+
+![Variables Shader](https://media.discordapp.net/attachments/1163146681064357908/1191805070132658367/image.png?ex=65a6c5f7&is=659450f7&hm=a8ede5e63669c2e60111ca7483fb29821154ebc64056f74d7f9e43d26ba72564&=&format=webp&quality=lossless&width=276&height=670)
+

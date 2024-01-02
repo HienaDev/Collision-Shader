@@ -124,9 +124,13 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _Progression: 0
-    - _Progression0: 0.54
+    - _Progression0: 1
     - _Progression1: 0.63
     - _Progression2: 0
+    - _Progression3: 0.63
+    - _Progression4: 0.63
+    - _Progression5: 0.63
+    - _Progression6: 0.63
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -144,8 +148,12 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FocalPoint: {r: 0, g: 0, b: 0, a: 0}
-    - _FocalPoint0: {r: 0, g: 0, b: 0, a: 0}
+    - _FocalPoint0: {r: 0, g: 0, b: 0.5, a: 0}
     - _FocalPoint1: {r: 0, g: 0, b: 0, a: 0}
-    - _FocalPoint2: {r: 0, g: 0.5, b: 0.5, a: 0}
+    - _FocalPoint2: {r: 0, g: 0, b: 0, a: 0}
+    - _FocalPoint3: {r: 0, g: 0, b: 0, a: 0}
+    - _FocalPoint4: {r: 0, g: 0, b: 0, a: 0}
+    - _FocalPoint5: {r: 0, g: 0, b: 0, a: 0}
+    - _FocalPoint6: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
