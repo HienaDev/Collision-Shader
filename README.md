@@ -51,7 +51,7 @@ Apesar de o material estar a mudar, a esfera em si não mudava, suspeitei que fo
 Depois disto achei que já tinha material suficiente para começar o meu shader.
 
 
-### **Comecei a fazer o meu shader:**
+## **Comecei a fazer o meu shader:**
 
 Criei um timer que me permite ir de 0 a 1 com a função sen:
 ![Timer Sin](https://media.discordapp.net/attachments/1163146681064357908/1191731228030795877/image.png?ex=65a68132&is=65940c32&hm=ad78c97a8120f0bcace8d953803991cc787aef3f74d375555e10e55592207bee&=&format=webp&quality=lossless&width=1348&height=550)
@@ -105,3 +105,14 @@ Finalmente, damos este resultado ao nosso grupo que altera a posição dos vért
 
 Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/1PPWpBOCNbuVdiQQhesbG8JtEANb8bVj7/view?usp=sharing)
 
+Temos agora o efeito pretendido, mas não o queremos a repetir com o tempo como está agora, ou seja o valor da progressão da onda vai deixar de ser oscilante, mas sim um valor que o programa controla, e queremos que comece onde haja colisões, para isso temos que criar um script que trate de dar os valores corretos ao shader.
+
+Antes disso, criei um subshader mais organizado para o efeito.
+Este subshader recebe cinco variaveis:
+- Progression: Distância do ponto de impacto entre 0 e 1, em que 0 é no ponto de impacto e 1 o ponto final.
+- Focalpoint: O ponto inicial de impacto
+- Amplitude: A altura da onda
+- Size: O tamanho da onda
+- Frequency: Quão rapido a onda se propaga
+
+![SubShader](https://media.discordapp.net/attachments/1163146681064357908/1191734097752621056/image.png?ex=65a683de&is=65940ede&hm=2b0cdf50d9436bc1ab9856c407de9fff2280546a9cdeb6799d72c4f485d095fa&=&format=webp&quality=lossless&width=1440&height=442)
