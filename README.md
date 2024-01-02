@@ -86,3 +86,7 @@ Depois disso, crio uma secção à parte, esta secção recebe o ponto de impact
 Criei um node smoothstep para receber estes inputs, ao receber o add e o subtract, obtemos os limites do nosso anel e a length dá-nos o ponto inicial a partir de qual o anel se afasta e expande ao longo da mesh:
 
 ![Smoothstep Node](https://media.discordapp.net/attachments/1163146681064357908/1191725059522441318/image.png?ex=65a67b73&is=65940673&hm=7d76d4e329af7f3825b69a8676e4e24f8ffc776277d1e37f4129d172bce63e37&=&format=webp&quality=lossless&width=593&height=668)
+
+Dou este resultado a um One Minus node, como o smoothstep vai estar sempre compreendido entre 0 e 1, o one minus acaba por nos dar a diferença do seu input. Dando o valor oposto ao smoothstep. Quando multiplicamos os dois resultados, tudo o que está a 0 em ambos é removido no outro, e onde não houver zeros, ficamos com um gradiente, que é mais forte no centro (onde ambos os inputs têm valor mais alto):
+
+![One minus node](https://media.discordapp.net/attachments/1163146681064357908/1191726049508200528/image.png?ex=65a67c5f&is=6594075f&hm=526614aadb30b5debd7fc4452281b78f64a4b7bf5170a332b09b0662bedb5e47&=&format=webp&quality=lossless&width=895&height=670)
