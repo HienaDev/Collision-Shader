@@ -59,11 +59,12 @@ Criei um timer que me permite ir de 0 a 1 com a função sen:
 Em vez de usar diretamente o sine time, usamos o multiply pelo meio, para podemos alterar a frequência do time, e depois fazemos o sine, assim mantemos o intervalo entre 0 e 1 mas mudamos quanto oscila por segundo.
 Criei isto com o intuito de começar por ter um bubbling effect, então a oscilação constante do sen era perfeita para isso.
 Depois disso criei um grupo para mudar a posição dos vértices: para isso multiplico o resultado do grupo anterior pela normal dos vértices, depois adiciono essa mudança a posição de cada vértices, que vai ser na direção perpendicular ao vértices (o vetor normal de cada vértice), criando este efeito de expansão:
+
 ![Diagrama Vertices](https://media.discordapp.net/attachments/1163146681064357908/1191715793948389427/image.png?ex=65a672d2&is=6593fdd2&hm=063bbb9536e778aec98c037a7f9e78307828328dcfaf67f170d1aaa3558ff51c&=&format=webp&quality=lossless&width=498&height=363)
 
-(Diagrama que exemplifica a direção de cada vetor normal para cada vértice)
+(Desenho que exemplifica a direção de cada vetor normal para cada vértice)
 
-![Nodes Vertices](https://media.discordapp.net/attachments/1163146681064357908/1191715832888299630/image.png?ex=65a672db&is=6593fddb&hm=696f149bd3529aada1332c3084e8b9759b848c2658caec4cc67b574c009f183b&=&format=webp&quality=lossless&width=581&height=576)
+![Nodes Vertices](https://media.discordapp.net/attachments/1163146681064357908/1191730462641618954/image.png?ex=65a6807b&is=65940b7b&hm=874278795eafcbb532b5e85652bea378270c0fa65a9fb1fc5a4d082e72f8e5fd&=&format=webp&quality=lossless&width=668&height=670)
 
 Com isto consegui o efeito pretendido:
 
@@ -92,13 +93,15 @@ Dou este resultado a um One Minus node, como o smoothstep vai estar sempre compr
 ![One minus node](https://media.discordapp.net/attachments/1163146681064357908/1191726049508200528/image.png?ex=65a67c5f&is=6594075f&hm=526614aadb30b5debd7fc4452281b78f64a4b7bf5170a332b09b0662bedb5e47&=&format=webp&quality=lossless&width=895&height=670)
 
 
-Multiplicamos este valor pela nossa amplitude, o que altera o tamanho dos nossos valores que não são zero, fazendo assim com que a onda aumenta ou diminua de tamanho:
+Multiplicamos este valor pela nossa amplitude, o que altera o tamanho dos nossos valores que não são zero, fazendo assim com que a onda aumente ou diminua de tamanho:
 
 ![Amplitude](https://media.discordapp.net/attachments/1163146681064357908/1191728549648924803/image.png?ex=65a67eb3&is=659409b3&hm=603ba354f507ed5fc0071dc92a2d093da28de71a62c8d0352abe7d0e841272fc&=&format=webp&quality=lossless&width=716&height=670)
 
-Finalmente, damos este resultado ao nosso grupo de que altera a posição dos vértices e obtemos a deformação:
+Finalmente, damos este resultado ao nosso grupo que altera a posição dos vértices e obtemos a deformação:
 
 ![Final node connection](https://media.discordapp.net/attachments/1163146681064357908/1191729117985525871/image.png?ex=65a67f3a&is=65940a3a&hm=2db841514aed86cb5f361095a4b9a88102701dbbdf69f53e229d8e8cf2d4a7c5&=&format=webp&quality=lossless&width=888&height=670)
+
+![Distortion Effect](https://media.discordapp.net/attachments/1163146681064357908/1191730238179262474/image.png?ex=65a68046&is=65940b46&hm=bb92cb868b2b1f10d0cf48b812e7fb3482f3533159d16dca43316f8e1d301a0a&=&format=webp&quality=lossless&width=426&height=368)
 
 Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/1PPWpBOCNbuVdiQQhesbG8JtEANb8bVj7/view?usp=sharing)
 
