@@ -84,7 +84,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Amplitude: 0.025
+    - _Amplitude: 0.05
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -97,9 +97,9 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _Edge_Blend: 0.51
-    - _Effect_Radius: 3
+    - _Effect_Radius: 2
     - _EnvironmentReflections: 1
-    - _Frequency: 2.51
+    - _Frequency: 0.2
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -110,7 +110,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Ripple_Density: 10
+    - _Ripple_Density: 30
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
