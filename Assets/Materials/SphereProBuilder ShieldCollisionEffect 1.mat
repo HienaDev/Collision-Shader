@@ -117,6 +117,9 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DistortionStrength: 1
+    - _DotsNoiseScale: 30
+    - _DotsNoiseSpeed: 30
+    - _DotsSize: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
@@ -124,12 +127,19 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _MaskPower: 4
     - _Metallic: 0
+    - _NoiseCellDensity: 30
+    - _NoiseCellMovementSpeed: 2
+    - _NoiseCellRotationSpeed: 0.1
+    - _NoiseScale: 10
+    - _NoiseSpeed: 0.2
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _PatternChange: 10
     - _Progression: 0
     - _Progression0: 1
-    - _Progression1: 0.95
+    - _Progression1: 0.13
     - _Progression2: 0
     - _Progression3: 0.63
     - _Progression4: 0.63
@@ -145,19 +155,25 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
+    - _WaveColorStrenght: 5
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DotsColor: {r: 0.4525631, g: 0.6506155, b: 0.8490566, a: 0}
+    - _DotsTiling: {r: 8, g: 8, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FocalPoint: {r: 0, g: 0, b: 0, a: 0}
-    - _FocalPoint0: {r: 0, g: 0, b: -2.5, a: 0}
-    - _FocalPoint1: {r: 0, g: 0, b: 0.5, a: 0}
+    - _FocalPoint0: {r: 0, g: 0, b: -1, a: 0}
+    - _FocalPoint1: {r: 0, g: 0, b: -1, a: 0}
     - _FocalPoint2: {r: 0, g: 0, b: 0, a: 0}
     - _FocalPoint3: {r: 0, g: 0, b: 0, a: 0}
     - _FocalPoint4: {r: 0, g: 0, b: 0, a: 0}
     - _FocalPoint5: {r: 0, g: 0, b: 0, a: 0}
     - _FocalPoint6: {r: 0, g: 0, b: 0, a: 0}
+    - _PatternColor: {r: 0.4525631, g: 0.6506155, b: 0.8490566, a: 0}
+    - _PatternTiling: {r: 8, g: 8, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _WaveColor: {r: 0.9622641, g: 0.7838802, b: 0.27687788, a: 0}
   m_BuildTextureStacks: []
