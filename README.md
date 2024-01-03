@@ -178,3 +178,18 @@ Depois de muitos testes e exprimentações criei o seguinte shader:
 
 ![Cell Shader](https://media.discordapp.net/attachments/267705945377734667/1191853749472350268/image.png?ex=65a6f34d&is=65947e4d&hm=020ae28a6005194543573027b3eefe78a37411626dbeadee6c2ae117a0d80a87&=&format=webp&quality=lossless&width=1193&height=676)
 
+Criei um node com o padrão Truchet, que recebe duas variaveis que apenas controlam o tiling e complexidade do padrão, depois multiplico este padrão por uma cor para obter a cor do escudo:
+
+![Turchet](https://media.discordapp.net/attachments/1163146681064357908/1192096843610468453/image.png?ex=65a7d5b3&is=659560b3&hm=7ef0966c88d1798885085d68844bee10e8c81b0c9b484a1892880e31be8319bf&=&format=webp&quality=lossless&width=1053&height=670)
+
+Depois criei um node de noise Voronoi, que recebe a variavel CellDensity que controla quantas celulas o noise tem.
+Depois temos duas variaveis:
+- NoiseRotationSpeed: controla quão rapido o noise se mexe no eixo do X ao longo do tempo;
+- CellMovementSpeed: controla a velocidade ao longo do tempo da rotação que as celulas fazem em sua volta.
+
+![Cell Noise](https://media.discordapp.net/attachments/1163146681064357908/1192097362596864161/image.png?ex=65a7d62f&is=6595612f&hm=ca0d91428ad30ccb93ed32258a38ec53a587510758f60be8a91d08a9bba0f520&=&format=webp&quality=lossless&width=1440&height=583)
+
+Por fim multiplico o padrão colorido pelo noise e fico o shader final:
+
+![Final Noise](https://media.discordapp.net/attachments/1163146681064357908/1192098174509252658/image.png?ex=65a7d6f0&is=659561f0&hm=116d3b0490a57b259853bfb2c0825593449289401731287af39d8322c25db069&=&format=webp&quality=lossless&width=626&height=670)
+
