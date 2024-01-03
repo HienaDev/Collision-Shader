@@ -80,7 +80,7 @@ Recebemos o valor para a progressão da onda, ou seja onde está o anel, e usamo
 
 
 
-Depois disso, crio uma secção à parte, esta secção recebe o ponto de impacto (FocalPoint), normaliza este vetor para obter a direção, e neste caso, como estamos a aplicar uma esfera, dividimos por 2, pois queremos o comprimento de vetor a 0.5, já que o raio da esfera seria 0.5 e o diâmetro 1, as posições da mesh estão sempre compreendidas entre -0.5 e 0.5. Depois subtraímos a direção pela posição no objeto, para termos a posição inicial da shockwave no objeto. O node da length dá-nos a distância até esta posição inicial no objeto:
+Depois disso, crio uma secção à parte, esta secção recebe o ponto de impacto (FocalPoint), normaliza este vetor para obter a direção, e neste caso, como estamos a aplicar uma esfera de tamanho 1, dividimos por 2, pois queremos o comprimento de vetor a 0.5, já que o raio da esfera seria 0.5 e o diâmetro 1, as esferas neste caso teriam de ter sempre tamanho 1. Depois subtraímos a direção pela posição no objeto, para termos a posição inicial da shockwave no objeto. O node da length dá-nos a distância até esta posição inicial no objeto:
 
 ![Nodes for focal point](https://media.discordapp.net/attachments/1163146681064357908/1191719421551583293/image.png?ex=65a67633&is=65940133&hm=92cedcc69fa72013445ccdcda41f7ebbbfda8c5eee2b002fd4c3015b16e6b37c&=&format=webp&quality=lossless&width=1077&height=668)
 
@@ -159,6 +159,12 @@ Depois disto, para que o shader permitisse mais que uma onda, tive que criar mai
 Decidi que o shader permitira um máximo de 7 ondas simultâneas:
 
 ![7 Waves](https://media.discordapp.net/attachments/267705945377734667/1191822323460870234/image.png?ex=65a6d608&is=65946108&hm=893ac8d967d5f6cf53d388ccd50b95e1345009dbaafc03f1c203dd2d90000ccc&=&format=webp&quality=lossless&width=1213&height=668)
+
+Criei também uma nova esfera com mais triangulos com probuilder, para poder ter waves mais pequenas, no caso da esfera default do unity, se ficasse muito pequena, levantava apenas um vértice e ficava um conjunto de pirâmides em vez de uma onda:
+
+![Pyramide Waves](https://cdn.discordapp.com/attachments/1163146681064357908/1192078095595868160/image.png?ex=65a7c43d&is=65954f3d&hm=2d5126176559c3c005c9a072d5b3798736f24e170fb83697cdc99634b45f82d2&)
+
+Depois disso adaptei o shader a nova esfera e fiquei com este efeito com as 7 ondas:
 
 Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/18KxEmDjmmkRf2Alndq7GpWrjbjcEhu6O/view?usp=sharing)
 
