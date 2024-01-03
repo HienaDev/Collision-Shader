@@ -193,3 +193,10 @@ Por fim multiplico o padrão colorido pelo noise e fico o shader final:
 
 ![Final Noise](https://media.discordapp.net/attachments/1163146681064357908/1192098174509252658/image.png?ex=65a7d6f0&is=659561f0&hm=116d3b0490a57b259853bfb2c0825593449289401731287af39d8322c25db069&=&format=webp&quality=lossless&width=626&height=670)
 
+Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/1ffH2rfUQuvcGpqv0FONTx9NSO0DAW4sH/view?usp=sharing)
+
+De seguida queria adicionar uma cor à onda, assim para além da deformação fisica, dava uma certa "deformação" da cor.
+Para isto multipliquei as ondas recebidas por uma cor que pode ser definida pelo utilizador, que por usa vez pode ser multiplicada por uma itensidade para que esta cor seja mais distinguível, e depois adiciono esta cor ao efeito previamente criado:
+
+![Final color](https://media.discordapp.net/attachments/1163146681064357908/1192099765282951289/image.png?ex=65a7d86c&is=6595636c&hm=45a7127bdcc4f320d311ab8963348d7ca7c5ff4eca8dabb9fb6565f05aca76db&=&format=webp&quality=lossless&width=1026&height=670)
+
