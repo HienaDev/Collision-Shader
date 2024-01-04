@@ -1,30 +1,30 @@
 # **Computação Gráfica - Relatório**
-## **Shader com colisões**
+## ***Shader* com colisões**
 
 
-![Final Shader Images](https://media.discordapp.net/attachments/1163146681064357908/1192491092122292325/image.png?ex=65a944df&is=6596cfdf&hm=65a6e68bf7295b35c9ff6d92a5ae85a8d1a48d6ce678b4c4d02c4f634dd84b70&=&format=webp&quality=lossless&width=1440&height=293)
+![Final *Shader* Images](https://media.discordapp.net/attachments/1163146681064357908/1192491092122292325/image.png?ex=65a944df&is=6596cfdf&hm=65a6e68bf7295b35c9ff6d92a5ae85a8d1a48d6ce678b4c4d02c4f634dd84b70&=&format=webp&quality=lossless&width=1440&height=293)
 
 ![Tree Shade Image](https://media.discordapp.net/attachments/1163146681064357908/1192533398397399170/image.png?ex=65a96c46&is=6596f746&hm=7aa932a65b2f6f469f6715d11db6508dc2ced36a46e723c375768dab4769a7a6&=&format=webp&quality=lossless&width=926&height=670)
 
-![Statue Shader Image](https://media.discordapp.net/attachments/1163146681064357908/1192533465514659860/image.png?ex=65a96c56&is=6596f756&hm=c1d430a52cb90e5e1debdd698e18545244981b8fa28d39f2533aeee5b013e5a4&=&format=webp&quality=lossless&width=403&height=670)
+![Statue *Shader* Image](https://media.discordapp.net/attachments/1163146681064357908/1192533465514659860/image.png?ex=65a96c56&is=6596f756&hm=c1d430a52cb90e5e1debdd698e18545244981b8fa28d39f2533aeee5b013e5a4&=&format=webp&quality=lossless&width=403&height=670)
 
-#### Trabalho realizdo por:
+## Trabalho realizdo por:
 
-- António Rodrigues - a22202884
+- António Rodrigues - a22202884.
 
-#### Relatório:
+## Relatório:
 
-Comecei por procurar o “óbvio” e pesquisar como fazer um shader que reagia a colisões, com isso encontrei dois videos:
+Comecei por procurar o “óbvio” e pesquisar como fazer um *shader* que reagia a colisões, com isso encontrei dois videos:
 
-[Shader Graph Forcefield: Update](https://www.youtube.com/watch?v=P47yMdetoE4&ab_channel=WilmerLinGASchool) - Acabei por sentir que este vídeo não fazia o que queria, usava raycasts para determinar os impactos, e não colisões, mas retirei de lá a ideia de usar um ripple effect.
+[*Shader* Graph Forcefield: Update](https://www.youtube.com/watch?v=P47yMdetoE4&ab_channel=WilmerLinGASchool) - Acabei por sentir que este vídeo não fazia o que queria, usava raycasts para determinar os impactos, e não colisões, mas retirei de lá a ideia de usar um ripple effect.
 
-[Energy Shield Effect in Unity URP Shader Graph](https://www.youtube.com/watch?v=o4CGL2YXs5k&ab_channel=Imphenzia) - Este fazia quase tudo o que queria e usei como referência para começar.
+[Energy Shield Effect in Unity URP *Shader* Graph](https://www.youtube.com/watch?v=o4CGL2YXs5k&ab_channel=Imphenzia) - Este fazia quase tudo o que queria e usei como referência para começar.
 
-Depois disto achei que procurar por um ripple effect seria o melhor começo, pois a partir daí, caso conseguisse determinar a posição das colisões, poderia enviar essa informação para o shader, e causar os ripple effects no local da colisão.
+Depois disto achei que procurar por um ripple effect seria o melhor começo, pois a partir daí, caso conseguisse determinar a posição das colisões, poderia enviar essa informação para o *shader*, e causar os ripple effects no local da colisão.
 
 Pesquisei então por ripple effects e encontrei este video: 
 
-[Shockwave Shader Graph - How to make a shock wave shader in Unity URP/HDRP](https://www.youtube.com/watch?v=dFDAwT5iozo&ab_channel=GameDevBill) 
+[Shockwave *Shader* Graph - How to make a shock wave *shader* in Unity URP/HDRP](https://www.youtube.com/watch?v=dFDAwT5iozo&ab_channel=GameDevBill) 
 
 Este video foi um bom começo, e permitiu-me chegar a um resultado parecido ao efeito que queria:
 
@@ -32,7 +32,7 @@ Este video foi um bom começo, e permitiu-me chegar a um resultado parecido ao e
                                                     
 Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/1o_DCMi-iCpm2Wfh4DWscVADBldpeMY7n/view?usp=sharing)
 
-Mas depois disto senti que tinha pouco controlo, no primeiro que era específico para sprites senti-me com mais controlo pois o shader permitia mudar o focal point num espaço 2D facilmente, e consegui também fazer um efeito com mais que um ripple:
+Mas depois disto senti que tinha pouco controlo, no primeiro que era específico para sprites senti-me com mais controlo pois o *shader* permitia mudar o focal point num espaço 2D facilmente, e consegui também fazer um efeito com mais que um ripple:
 
 ![Efeito ripple em sprite](https://media.discordapp.net/attachments/1163146681064357908/1191715682824491098/image.png?ex=65a672b7&is=6593fdb7&hm=a546eec052eab20fb6a1575d3975ea9a1e95d002b209614dc0fbb630bba6631b&=&format=webp&quality=lossless&width=696&height=272)
 
@@ -41,9 +41,9 @@ Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/1GrYGJ1sYELv5
 Mas no caso da esfera, senti que tinha pouco controlo, e mesmo depois de algumas mudanças, e alterando o focal pointo para um Vector3, eu conseguia controlá-lo facilmente no eixo do X e do Y, mas estava com dificuldades no eixo do Z, garantidamente que era por não ter entendido tudo o que retirei do vídeo anterior, mas decidi voltar a pesquisar.
 
 Com isso encontrei este vídeo:
-[Unity Shader Graph VFX - Bubble Shield (Tutorial)](https://www.youtube.com/watch?v=jdAbVkre8cw&ab_channel=ABitOfGameDev)
+[Unity *Shader* Graph VFX - Bubble Shield (Tutorial)](https://www.youtube.com/watch?v=jdAbVkre8cw&ab_channel=ABitOfGameDev)
 
-Com este tutorial aprendi algus efeitos como o twirl, que achei que seriam interessantes para o shader final, mas este tutorial usava uma esfera com UVs alterados, e eu quero criar um shader que funcione com qualquer objeto, especialmente os default do Unity:
+Com este tutorial aprendi algus efeitos como o twirl, que achei que seriam interessantes para o *shader* final, mas este tutorial usava uma esfera com UVs alterados, e eu quero criar um *shader* que funcione com qualquer objeto, especialmente os default do Unity:
 
 ![Twirl](https://media.discordapp.net/attachments/1163146681064357908/1191715707428274286/image.png?ex=65a672bd&is=6593fdbd&hm=9607fa7bc45a8512d1ff2fc9c035e538c2bc5bd26930d70e9f256543a60ae93e&=&format=webp&quality=lossless&width=590&height=391)
 
@@ -52,10 +52,10 @@ Apesar de o material estar a mudar, a esfera em si não mudava, suspeitei que fo
 
 ![Sem deformação](https://media.discordapp.net/attachments/1163146681064357908/1191715738969448558/image.png?ex=65a672c5&is=6593fdc5&hm=49641b2a1b3b3a8482846a2861403279ea0a20d5d69e98554ef42e5b1e06710e&=&format=webp&quality=lossless&width=527&height=473)
 
-Mas depois disto achei que já tinha material suficiente para começar o meu shader.
+Mas depois disto achei que já tinha material suficiente para começar o meu *shader*.
 
 
-## **Comecei a fazer o meu shader:**
+## **Comecei a fazer o meu *shader*:**
 
 Criei um timer que me permite ir de 0 a 1 com a função sen:
 ![Timer Sin](https://media.discordapp.net/attachments/1163146681064357908/1191731228030795877/image.png?ex=65a68132&is=65940c32&hm=ad78c97a8120f0bcace8d953803991cc787aef3f74d375555e10e55592207bee&=&format=webp&quality=lossless&width=1348&height=550)
@@ -117,25 +117,25 @@ Finalmente, damos este resultado ao nosso grupo que altera a posição dos vért
 
 Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/1PPWpBOCNbuVdiQQhesbG8JtEANb8bVj7/view?usp=sharing)
 
-Temos agora o efeito pretendido, mas não o queremos a repetir com o tempo como está agora, ou seja o valor da progressão da onda vai deixar de ser oscilante, mas sim um valor que o programa controla, e queremos que comece onde haja colisões, para isso temos que criar um script que trate de dar os valores corretos ao shader.
+Temos agora o efeito pretendido, mas não o queremos a repetir com o tempo como está agora, ou seja o valor da progressão da onda vai deixar de ser oscilante, mas sim um valor que o programa controla, e queremos que comece onde haja colisões, para isso temos que criar um script que trate de dar os valores corretos ao *shader*.
 
-Antes disso, criei um subshader mais organizado para o efeito.
-Este subshader recebe 4 variaveis:
+Antes disso, criei um sub*shader* mais organizado para o efeito.
+Este sub*shader* recebe 4 variaveis:
 - Progression: Distância do ponto de impacto entre 0 e 1, em que 0 é no ponto de impacto e 1 o ponto final;
 - Focalpoint: O ponto inicial de impacto;
 - Amplitude: A altura da onda;
 - Size: O tamanho da onda;
 
-O subshader devolve o anel para ser desenhado.
+O sub*shader* devolve o anel para ser desenhado.
 
 ![SubShader](https://media.discordapp.net/attachments/1163146681064357908/1191816005484286033/image.png?ex=65a6d026&is=65945b26&hm=d80b4b31cfc8b9441a76b6e047f1d59048a6f3c02dba2e52b8bfa9fcc8144e97&=&format=webp&quality=lossless&width=1440&height=526)
 
-Agora com o subshader feito, vamos criar o script que deteta as colisões e dá os dados da mesma ao shader:
+Agora com o sub*shader* feito, vamos criar o script que deteta as colisões e dá os dados da mesma ao *shader*:
 
 No nosso script temos 6 variáveis:
-- material: O material do nosso objeto, que neste caso tem que ter o shader criado anteriormente;
+- material: O material do nosso objeto, que neste caso tem que ter o *shader* criado anteriormente;
 - defaultFocalPoint: Esta variável é criada como a posição nula, para quando a onda termina, voltarmos a posição inicial para evitar deformações;
-- maxFocalPoints: Isto define quantas ondas permitimos ao mesmo tempo no nosso objeto, terá sempre um *hard limit* definido pelo shader;
+- maxFocalPoints: Isto define quantas ondas permitimos ao mesmo tempo no nosso objeto, terá sempre um *hard limit* definido pelo *shader*;
 - index: Quando temos mais que uma onda, o index permite percorrer cada onda para ser desenhada, caso cheguemos ao limite definido pelo maxFocalPoints, a primeira onda será substituida pela nova onda;
 - destroyCollidedObjects: Um booleano que da a opção ao utilizar de destruir os objetos que colidem com o objeto ou não;
 - frequency: Quão rapido a onda se propaga.
@@ -176,11 +176,11 @@ Decidi dar a opção ao utilizador se quer que os objetos colididos sejam destru
 
 ![Collision Detection](https://media.discordapp.net/attachments/1163146681064357908/1191740141325275207/image.png?ex=65a6897f&is=6594147f&hm=df144128c3a6c11dcd67483f1e43d028fd697930ad50ed0d0bcd729109580861&=&format=webp&quality=lossless&width=1281&height=502)
 
-Depois disto, para que o shader permitisse mais que uma onda, tive que criar mais variaveis:
+Depois disto, para que o *shader* permitisse mais que uma onda, tive que criar mais variaveis:
 
-![Variables Shader](https://media.discordapp.net/attachments/1163146681064357908/1191805070132658367/image.png?ex=65a6c5f7&is=659450f7&hm=a8ede5e63669c2e60111ca7483fb29821154ebc64056f74d7f9e43d26ba72564&=&format=webp&quality=lossless&width=276&height=670)
+![Variables *Shader*](https://media.discordapp.net/attachments/1163146681064357908/1191805070132658367/image.png?ex=65a6c5f7&is=659450f7&hm=a8ede5e63669c2e60111ca7483fb29821154ebc64056f74d7f9e43d26ba72564&=&format=webp&quality=lossless&width=276&height=670)
 
-Decidi que o shader permitira um máximo de 7 ondas simultâneas:
+Decidi que o *shader* permitira um máximo de 7 ondas simultâneas:
 
 ![7 Waves](https://media.discordapp.net/attachments/267705945377734667/1191822323460870234/image.png?ex=65a6d608&is=65946108&hm=893ac8d967d5f6cf53d388ccd50b95e1345009dbaafc03f1c203dd2d90000ccc&=&format=webp&quality=lossless&width=1213&height=668)
 
@@ -196,7 +196,7 @@ Criei também uma nova esfera com mais triangulos com probuilder, para poder ter
 
 ![Probuild Sphere](https://media.discordapp.net/attachments/1163146681064357908/1191864665236586578/image.png?ex=65a6fd77&is=65948877&hm=64c33a64b8b70deef139f2cbaf170d4eb9a74c049a19e84b551185c02b2c084c&=&format=webp&quality=lossless&width=562&height=513)
 
-Depois disso adaptei o shader a nova esfera e fiquei com este efeito com as 7 ondas (Esfera do ProBuilder à esquerda e Esferda do Unity à direita):
+Depois disso adaptei o *shader* a nova esfera e fiquei com este efeito com as 7 ondas (Esfera do ProBuilder à esquerda e Esferda do Unity à direita):
 
 Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/18KxEmDjmmkRf2Alndq7GpWrjbjcEhu6O/view?usp=sharing)
 
@@ -206,11 +206,11 @@ Demonstração do efeito com rotação: [Vídeo](https://drive.google.com/file/d
 
 Em seguida decidi que já estava farto dos tijolos, então comecei a trabalhar para fazer um efeito para o escudo, primeiro deparei-me com este tutorial:
 
-[Unity Shader Graph - Sci-Fi Barrier / Shield Tutorial](https://www.youtube.com/watch?v=rB4YMQmO8Mw&t=3s&ab_channel=GabrielAguiarProd.) - Repliquei o tutorial e percebi melhor como funcionava o ruído e os padrões procedimentais. 
+[Unity *Shader* Graph - Sci-Fi Barrier / Shield Tutorial](https://www.youtube.com/watch?v=rB4YMQmO8Mw&t=3s&ab_channel=GabrielAguiarProd.) - Repliquei o tutorial e percebi melhor como funcionava o ruído e os padrões procedimentais. 
 
-Depois de muitos testes e exprimentações criei o seguinte shader:
+Depois de muitos testes e exprimentações criei o seguinte *shader*:
 
-![Cell Shader](https://media.discordapp.net/attachments/267705945377734667/1191853749472350268/image.png?ex=65a6f34d&is=65947e4d&hm=020ae28a6005194543573027b3eefe78a37411626dbeadee6c2ae117a0d80a87&=&format=webp&quality=lossless&width=1193&height=676)
+![Cell *Shader*](https://media.discordapp.net/attachments/267705945377734667/1191853749472350268/image.png?ex=65a6f34d&is=65947e4d&hm=020ae28a6005194543573027b3eefe78a37411626dbeadee6c2ae117a0d80a87&=&format=webp&quality=lossless&width=1193&height=676)
 
 Criei um node com o padrão Truchet, que recebe duas variaveis que apenas controlam o *tiling* e complexidade do padrão, depois multiplico este padrão por uma cor para obter a cor do escudo:
 
@@ -223,7 +223,7 @@ Depois temos duas variaveis:
 
 ![Cell Noise](https://media.discordapp.net/attachments/1163146681064357908/1192097362596864161/image.png?ex=65a7d62f&is=6595612f&hm=ca0d91428ad30ccb93ed32258a38ec53a587510758f60be8a91d08a9bba0f520&=&format=webp&quality=lossless&width=1440&height=583)
 
-Por fim multiplico o padrão colorido pelo ruído e fico com o shader final:
+Por fim multiplico o padrão colorido pelo ruído e fico com o *shader* final:
 
 ![Final Noise](https://media.discordapp.net/attachments/1163146681064357908/1192098174509252658/image.png?ex=65a7d6f0&is=659561f0&hm=116d3b0490a57b259853bfb2c0825593449289401731287af39d8322c25db069&=&format=webp&quality=lossless&width=626&height=670)
 
@@ -242,21 +242,21 @@ Para isto multipliquei as ondas recebidas por uma cor que pode ser definida pelo
 Com isto feito, queria tentar fazer um efeito de intersecção da esfera com objetos na cena. 
 Para isso encontrei este video:
 
-[Unity Shader Graph - Intersection Effect Tutorial](https://www.youtube.com/watch?v=Uyw5yBFEoXo&t=260s&ab_channel=GabrielAguiarProd.)
+[Unity *Shader* Graph - Intersection Effect Tutorial](https://www.youtube.com/watch?v=Uyw5yBFEoXo&t=260s&ab_channel=GabrielAguiarProd.)
 
 Resultado após o tutorial:
 
-![Intersection Shader](https://media.discordapp.net/attachments/1163146681064357908/1192159520517013624/image.png?ex=65a81012&is=65959b12&hm=e83f4779d99980d5ad1b72d64b7542ff233187e377d9404a5db72d1902c9f7a5&=&format=webp&quality=lossless&width=531&height=305)
+![Intersection *Shader*](https://media.discordapp.net/attachments/1163146681064357908/1192159520517013624/image.png?ex=65a81012&is=65959b12&hm=e83f4779d99980d5ad1b72d64b7542ff233187e377d9404a5db72d1902c9f7a5&=&format=webp&quality=lossless&width=531&height=305)
 
-Apesar de conseguir replicar o efeito no video, não consegui aplicá-lo ao meu shader, decidi então deixar aqui como *honorable mention* e repliquei o efeito pretendido com duas esferas, uma com o shader de intersecão e outra com o shader de ondas:
+Apesar de conseguir replicar o efeito no video, não consegui aplicá-lo ao meu *shader*, decidi então deixar aqui como *honorable mention* e repliquei o efeito pretendido com duas esferas, uma com o *shader* de intersecão e outra com o *shader* de ondas:
 
 Efeito com 2 esferas: [Vídeo](https://drive.google.com/file/d/10IhK5XWkaiuZDg2ug4eO6ce0A4i8IBWy/view?usp=sharing)
 
-No dia seguinte, por sorte, apareceu-me este vídeo, que mostrava um "museu" de shaders, e neste vídeo tinha o shader do intersect outra vez, mas que funcionava de outra maneira: [10 Shaders in 10 Minutes - Unity Shader Graph](https://www.youtube.com/watch?v=vje0x1BNpp8&t=264s&ab_channel=DanielIlett)
+No dia seguinte, por sorte, apareceu-me este vídeo, que mostrava um "museu" de *shaders*, e neste vídeo tinha o *shader* do intersect outra vez, mas que funcionava de outra maneira: [10 *Shaders* in 10 Minutes - Unity *Shader* Graph](https://www.youtube.com/watch?v=vje0x1BNpp8&t=264s&ab_channel=DanielIlett)
 
-Com este vídeo, consegui finalmente fazer a intersecção no meu shader, ja que este recebia a *base color*, e aplicava o efeito por cima da *base color*:
+Com este vídeo, consegui finalmente fazer a intersecção no meu *shader*, ja que este recebia a *base color*, e aplicava o efeito por cima da *base color*:
 
-![Intersection shader](https://media.discordapp.net/attachments/1163146681064357908/1192444681775239229/image.png?ex=65a919a6&is=6596a4a6&hm=6ee4954967fee55e4b857f3f630ea27e675c0fb4334936fcb15d2901889a1a4c&=&format=webp&quality=lossless&width=1440&height=590)
+![Intersection *shader*](https://media.discordapp.net/attachments/1163146681064357908/1192444681775239229/image.png?ex=65a919a6&is=6596a4a6&hm=6ee4954967fee55e4b857f3f630ea27e675c0fb4334936fcb15d2901889a1a4c&=&format=webp&quality=lossless&width=1440&height=590)
 
 Primeiro comparamos a profundidade da cena, com o node *scene depth* este node dá-nos a profundidade de cada objeto que esta a ser renderizado, e usando a sample *eye* vemos esta profundidade da prespetiva da câmara.
 
@@ -264,21 +264,21 @@ Depois removemos a este valor a posição do objeto com o node *screen position*
 
 A variável IntersectionDepth, permite regular o tamanho da nossa interseção, usamos o node *remap*, que faz a nossa escala que seria de 0 a 1, passar a ser de 1 a 0, para que faça mais sentido, pois assim ao aumentar o valor da variavel, o tamanho da interseção aumenta:
 
-![Shader intersection 1](https://media.discordapp.net/attachments/1163146681064357908/1192447101792165938/image.png?ex=65a91be7&is=6596a6e7&hm=b832a4a3151820cb433be4e650e51db35625034bde10cea15bafbbbf5c238ab5&=&format=webp&quality=lossless&width=1440&height=580)
+![*Shader* intersection 1](https://media.discordapp.net/attachments/1163146681064357908/1192447101792165938/image.png?ex=65a91be7&is=6596a6e7&hm=b832a4a3151820cb433be4e650e51db35625034bde10cea15bafbbbf5c238ab5&=&format=webp&quality=lossless&width=1440&height=580)
 
-Tudo até este ponto tinha visto no vídeo anterior, é neste novo vídeo que foi introduzida a diferença, ao invês de receber o valor *alpha* da cor e o inserir no campo *alpha* do nosso shader, que removia a cor do resto do escudo (o que fazia o efeito não funcionar, pois removia o escudo por inteiro), este shader faz um lerp, ou seja, onde for transparente, fica com a cor do escudo, caso não seja, fica a cor da interseção.
+Tudo até este ponto tinha visto no vídeo anterior, é neste novo vídeo que foi introduzida a diferença, ao invês de receber o valor *alpha* da cor e o inserir no campo *alpha* do nosso *shader*, que removia a cor do resto do escudo (o que fazia o efeito não funcionar, pois removia o escudo por inteiro), este *shader* faz um lerp, ou seja, onde for transparente, fica com a cor do escudo, caso não seja, fica a cor da interseção.
 
 A variavel IntersectionStrenght permite-nos controlar o node *power* que nos dá o valor elevado a esta IntersectionStrength, que nos dá mais controlo sobre a intensidade do escudo:
 
-![Shader intersection 2](https://media.discordapp.net/attachments/1163146681064357908/1192448451980574750/image.png?ex=65a91d29&is=6596a829&hm=e30dcff84517b6b84508d16b57f42b0e8e2418d3d900f256c4c077101f5b2afe&=&format=webp&quality=lossless&width=1347&height=606)
+![*Shader* intersection 2](https://media.discordapp.net/attachments/1163146681064357908/1192448451980574750/image.png?ex=65a91d29&is=6596a829&hm=e30dcff84517b6b84508d16b57f42b0e8e2418d3d900f256c4c077101f5b2afe&=&format=webp&quality=lossless&width=1347&height=606)
 
 Por fim, o ruído e cor da intersecção, este ruído é extremamente parecido com o ruído do escudo em si em termos de lógica, então não acho que precise de grande explicação, tem apenas algumas variaveis para controlar quão intenso é o movimento, e quão denso o ruído é, depois, como tinha referido, tudo isto é dado a um lerp, que faz então a interpolação como referido anteriormente:
 
-![Shader intersection 3](https://media.discordapp.net/attachments/1163146681064357908/1192449163468750958/image.png?ex=65a91dd3&is=6596a8d3&hm=a0ea691d9be3193ccd6be9f9ee095e7ddfdd80d7e12f054dca749c998c1aedd2&=&format=webp&quality=lossless&width=1440&height=506)
+![*Shader* intersection 3](https://media.discordapp.net/attachments/1163146681064357908/1192449163468750958/image.png?ex=65a91dd3&is=6596a8d3&hm=a0ea691d9be3193ccd6be9f9ee095e7ddfdd80d7e12f054dca749c998c1aedd2&=&format=webp&quality=lossless&width=1440&height=506)
 
 Efeito com a intersecção final: [Vídeo](https://drive.google.com/file/d/1lMxKZ_Gze4OqLL7l4T1YYEx36WJryL9M/view?usp=sharing)
 
-O único ponto  negativo é que com este shader, a cor do escudo é substituida pela da intersecção, ao invés de ficar por cima:
+O único ponto  negativo é que com este *shader*, a cor do escudo é substituida pela da intersecção, ao invés de ficar por cima:
 
 **Efeito antigo:**
 
@@ -288,15 +288,15 @@ O único ponto  negativo é que com este shader, a cor do escudo é substituida 
 
 ![New Intersection](https://media.discordapp.net/attachments/1163146681064357908/1192443922430046299/image.png?ex=65a918f1&is=6596a3f1&hm=49da5ae208590303f744b720d2470935ba03eee7f803f7939f943eac79d479ee&=&format=webp&quality=lossless)
 
-Para terminar fiz uma demo scene a mostar o shader em diferentes cenários e diferentes padrões e efeitos que se consegues com o shader:
+Para terminar fiz uma demo scene a mostar o *shader* em diferentes cenários e diferentes padrões e efeitos que se consegues com o *shader*:
 
 ![Demo scene](https://media.discordapp.net/attachments/1163146681064357908/1192490809065480313/image.png?ex=65a9449c&is=6596cf9c&hm=75477fc149d55c00f889995eb0e6cc58e90f58d2c8930e11794b1742124ba831&=&format=webp&quality=lossless&width=753&height=670)
 
-Shader final com o nome ShieldCollisionEffect:
+*Shader* final com o nome ShieldCollisionEffect:
 
-![Final shader](https://media.discordapp.net/attachments/1163146681064357908/1192491727995547778/image.png?ex=65a94577&is=6596d077&hm=477912de7a16f1910ff2e135ef32c47f4f72e842b0ffd9380fd71bb3d1b600e2&=&format=webp&quality=lossless&width=1418&height=670)
+![Final *shader*](https://media.discordapp.net/attachments/1163146681064357908/1192491727995547778/image.png?ex=65a94577&is=6596d077&hm=477912de7a16f1910ff2e135ef32c47f4f72e842b0ffd9380fd71bb3d1b600e2&=&format=webp&quality=lossless&width=1418&height=670)
 
-**Fazer o shader funcionar com qualquer *mesh*:**
+**Fazer o *shader* funcionar com qualquer *mesh*:**
 
 Até este ponto achava que estava concluído e estava a acabar o relatório, mas estava determinado a perceber porque não funcionava em *mesh*'s diferentes de esferas, em cubos funcionava, mas mal.
 
@@ -306,9 +306,9 @@ Cubo a deformar apenas nos cantos: [Vídeo](https://drive.google.com/file/d/13AG
 
 
 
-Depois voltei ao meu subshader de impacto e comecei a mexer em alguns valores, e mudei a divisão para 1.5:
+Depois voltei ao meu sub*shader* de impacto e comecei a mexer em alguns valores, e mudei a divisão para 1.5:
 
-![Shader division](https://media.discordapp.net/attachments/1163146681064357908/1192504358127026196/image.png?ex=65a9513a&is=6596dc3a&hm=3ba32071d3cf33a3070168d7f8429ba6798fb77a9559c07f73d6ae47975b4c06&=&format=webp&quality=lossless&width=597&height=360)
+![*Shader* division](https://media.discordapp.net/attachments/1163146681064357908/1192504358127026196/image.png?ex=65a9513a&is=6596dc3a&hm=3ba32071d3cf33a3070168d7f8429ba6798fb77a9559c07f73d6ae47975b4c06&=&format=webp&quality=lossless&width=597&height=360)
 
 Depois disto a wave ficou quase perfeita nos cantos do cubo, mas no centro não:
 
@@ -329,7 +329,7 @@ Liguei o focal point diretamente a subtração da posição no objeto e agora fu
 Efeito em qualquer *mesh*: [Vídeo](https://drive.google.com/file/d/1oUpm9tlhCR86oAzBHN_4ssLzoyfJ9OZq/view?usp=sharing)
 
 Agora tinha um novo problema: 
-Como visto no vídeo anterior a onda não propaga até ao final do objeto, apercebi-me que, de novo, ambos no shader de impacto e no script, eu limitava a progressão até 1, o que funcionava perfeitamente para esferas, e se quisesse o efeito a funcionar em esferas de tamanho 1, era ideal. 
+Como visto no vídeo anterior a onda não propaga até ao final do objeto, apercebi-me que, de novo, ambos no *shader* de impacto e no script, eu limitava a progressão até 1, o que funcionava perfeitamente para esferas, e se quisesse o efeito a funcionar em esferas de tamanho 1, era ideal. 
 
 Mas por exemplo na estátua de cavalo do vídeo anterior com tamanho maior que 1 não iria funcionar.
 
@@ -351,9 +351,9 @@ Para terminar dei a opção ao utilizador de usar uma textura em vez do escudo e
 
 Resultado final: [Vídeo](https://drive.google.com/file/d/1UvbeTKdh6iq7Aym3Z0Twje2flI3Fhapl/view?usp=sharing)
 
-**Shader final:**
+***Shader* final:**
 
-![Final shader](https://media.discordapp.net/attachments/1163146681064357908/1192520969068220648/image.png?ex=65a960b2&is=6596ebb2&hm=b53aab3d4c9e501cbfdcf3fd251bedcc9fe6b4d9fef5dc8aa586c53729757954&=&format=webp&quality=lossless&width=1440&height=662)
+![Final *shader*](https://media.discordapp.net/attachments/1163146681064357908/1192520969068220648/image.png?ex=65a960b2&is=6596ebb2&hm=b53aab3d4c9e501cbfdcf3fd251bedcc9fe6b4d9fef5dc8aa586c53729757954&=&format=webp&quality=lossless&width=1440&height=662)
 
 Testei ainda com um cubo com mais polígonos para confirmar o problema que referi anteriormente, em que os cubos têm apenas 6 vértices e só deformava nos cantos, enquanto que este cubo tem mais e agora deformaria como deveria:
 
@@ -378,15 +378,15 @@ Não arranjei solução correta para este problema, então alterei a posição d
 
 ###**Conclusões finais:**
 
-Durante este trabalho ganhei bastante conhecimento sobre shaders, antes sentia que muitas coisas eram "magia" porque não percebia como funcionavam e também nao sabia sequer as possibilidade que um shader tem por serem muitas, depois disto descobri muito do que se pode fazer, e apercebi-me quão extenso é.
+Durante este trabalho ganhei bastante conhecimento sobre *shaders*, antes sentia que muitas coisas eram "magia" porque não percebia como funcionavam e também nao sabia sequer as possibilidade que um *shader* tem por serem muitas, depois disto descobri muito do que se pode fazer, e apercebi-me quão extenso é.
 
 Relembrei-me também que não devo tentar perceber as coisas sem as questionar, se tivesse questionado a normalização e o node *fraction* mais cedo teria poupado muita dor de cabeça.
 
-Felizmente consegui obter o shader exatamente como queria, e ainda vejo que há muito espaço para expansão, como por exemplo adicionar a opção de textura no final, é possível adicionar muito mais coisas ainda, e penso continuar a trabalhar neste shader e em outros, pois acabei por gostar mais de shaders do que esperava.
+Felizmente consegui obter o *shader* exatamente como queria, e ainda vejo que há muito espaço para expansão, como por exemplo adicionar a opção de textura no final, é possível adicionar muito mais coisas ainda, e penso continuar a trabalhar neste *shader* e em outros, pois acabei por gostar mais de *shaders* do que esperava.
 
 Aprendi também que ao gravar os objetos como prefabs ao invés de os ter apenas na *scene*, reduz imenso o tamanho que a scene ocupa no ficheiro, pois ao invés de gravar os objetos na *scene*, grava-os como ficheiro, o que foi uma grande salvação quando a *scene* tinha mais de 100mb e já estava a usar o git lfs e o github não permitia mais que isto: [Link para a discussão onde descobri isto](https://forum.unity.com/threads/git-and-unity-scene-files-larger-than-100mb.1038838/)
 
 
 ###**Um obrigado adicional a:**
-- David Brás: que me ajudou em alguns conceitos iniciais para o shader, especialmente a compreender melhor o *Vertext Displacement*;
-- João Silva (a22004451): que me fornecer alguns modelos 3D feitos por ele com mais e menos polígonos para testar o shader.
+- David Brás: que me ajudou em alguns conceitos iniciais para o *shader*, especialmente a compreender melhor o *Vertext Displacement*;
+- João Silva (a22004451): que me fornecer alguns modelos 3D feitos por ele com mais e menos polígonos para testar o *shader*.
