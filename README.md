@@ -374,7 +374,7 @@ Não arranjei solução correta para este problema, então alterei a posição *
 
 ![Final demo scene](https://media.discordapp.net/attachments/1163146681064357908/1192533079840014336/image.png?ex=65a96bfa&is=6596f6fa&hm=b0f95300f2255376646c70ff43a76f4bc928949ca026ef5e3de8d3aafccf3956&=&format=webp&quality=lossless&width=1242&height=670)
 
-###**Conclusões finais:**
+### **Conclusões finais:**
 
 Durante este trabalho ganhei bastante conhecimento sobre *shaders*, antes sentia que muitas coisas eram "magia" porque não percebia como funcionavam e também nao sabia sequer as possibilidade que um *shader* tem, por serem muitas, depois disto descobri muito do que se pode fazer, e apercebi-me quão extenso é.
 
@@ -385,7 +385,7 @@ Felizmente consegui obter o *shader* exatamente como queria, e ainda vejo que h�
 Aprendi também que ao gravar os objetos como prefabs ao invés de os ter apenas na *scene*, reduz imenso o tamanho que a scene ocupa no ficheiro, pois ao invés de gravar os objetos na *scene*, grava-os como ficheiro, o que foi uma grande salvação quando a *scene* tinha mais de 100mb e já estava a usar o git lfs e o github não permitia mais que isto: [Link para a discussão onde descobri isto](https://forum.unity.com/threads/git-and-unity-scene-files-larger-than-100mb.1038838/)
 
 
-###**Um obrigado adicional a:**
+### **Um obrigado adicional a:**
 
 - David Brás: que me ajudou em alguns conceitos iniciais para o *shader*, especialmente a compreender melhor o *Vertext Displacement*;
 - João Silva (a22004451): que me fornecer alguns modelos 3D feitos por ele com mais e menos polígonos para testar o *shader*.
