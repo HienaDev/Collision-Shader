@@ -4,6 +4,10 @@
 
 ![Final Shader Images](https://media.discordapp.net/attachments/1163146681064357908/1192491092122292325/image.png?ex=65a944df&is=6596cfdf&hm=65a6e68bf7295b35c9ff6d92a5ae85a8d1a48d6ce678b4c4d02c4f634dd84b70&=&format=webp&quality=lossless&width=1440&height=293)
 
+![Tree Shade Image](https://media.discordapp.net/attachments/1163146681064357908/1192533398397399170/image.png?ex=65a96c46&is=6596f746&hm=7aa932a65b2f6f469f6715d11db6508dc2ced36a46e723c375768dab4769a7a6&=&format=webp&quality=lossless&width=926&height=670)
+
+![Statue Shader Image](https://media.discordapp.net/attachments/1163146681064357908/1192533465514659860/image.png?ex=65a96c56&is=6596f756&hm=c1d430a52cb90e5e1debdd698e18545244981b8fa28d39f2533aeee5b013e5a4&=&format=webp&quality=lossless&width=403&height=670)
+
 #### Trabalho realizdo por:
 
 - António Rodrigues - a22202884
@@ -28,7 +32,7 @@ Este video foi um bom começo, e permitiu-me chegar a um resultado parecido ao e
                                                     
 Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/1o_DCMi-iCpm2Wfh4DWscVADBldpeMY7n/view?usp=sharing)
 
-Mas depois disto senti que tinha pouco controlo, no primeiro que era específico para sprites senti-me me com mais controlo pois o shader permitia mudar o focal point num espaço 2D facilmente, e consegui também fazer um efeito com mais que um ripple:
+Mas depois disto senti que tinha pouco controlo, no primeiro que era específico para sprites senti-me com mais controlo pois o shader permitia mudar o focal point num espaço 2D facilmente, e consegui também fazer um efeito com mais que um ripple:
 
 ![Efeito ripple em sprite](https://media.discordapp.net/attachments/1163146681064357908/1191715682824491098/image.png?ex=65a672b7&is=6593fdb7&hm=a546eec052eab20fb6a1575d3975ea9a1e95d002b209614dc0fbb630bba6631b&=&format=webp&quality=lossless&width=696&height=272)
 
@@ -44,11 +48,11 @@ Com este tutorial aprendi algus efeitos como o twirl, que achei que seriam inter
 ![Twirl](https://media.discordapp.net/attachments/1163146681064357908/1191715707428274286/image.png?ex=65a672bd&is=6593fdbd&hm=9607fa7bc45a8512d1ff2fc9c035e538c2bc5bd26930d70e9f256543a60ae93e&=&format=webp&quality=lossless&width=590&height=391)
 
 
-Apesar de o material estar a mudar, a esfera em si não mudava, suspeitei que fosse  por a esfera do vídeo ter UVs alterados, não tinha maya como no vídeo mas instalei blender para confirmar a teoria, após criar a esfera com os UVs como no tutorial, a esfera continuou sem deformação:
+Apesar de o material estar a mudar, a esfera em si não mudava, suspeitei que fosse  por a esfera do vídeo ter UVs alterados, não tinha maya como no vídeo mas instalei blender para confirmar a teoria, após criar a esfera com os UVs como no tutorial, a esfera continuou sem deformação, acabei por não entender o porquê:
 
 ![Sem deformação](https://media.discordapp.net/attachments/1163146681064357908/1191715738969448558/image.png?ex=65a672c5&is=6593fdc5&hm=49641b2a1b3b3a8482846a2861403279ea0a20d5d69e98554ef42e5b1e06710e&=&format=webp&quality=lossless&width=527&height=473)
 
-Depois disto achei que já tinha material suficiente para começar o meu shader.
+Mas depois disto achei que já tinha material suficiente para começar o meu shader.
 
 
 ## **Comecei a fazer o meu shader:**
@@ -57,7 +61,9 @@ Criei um timer que me permite ir de 0 a 1 com a função sen:
 ![Timer Sin](https://media.discordapp.net/attachments/1163146681064357908/1191731228030795877/image.png?ex=65a68132&is=65940c32&hm=ad78c97a8120f0bcace8d953803991cc787aef3f74d375555e10e55592207bee&=&format=webp&quality=lossless&width=1348&height=550)
 
 Em vez de usar diretamente o sine time, usamos o multiply pelo meio, para podemos alterar a frequência do time, e depois fazemos o sine, assim mantemos o intervalo entre 0 e 1 mas mudamos quanto oscila por segundo.
+
 Criei isto com o intuito de começar por ter um bubbling effect, então a oscilação constante do sen era perfeita para isso.
+
 Depois disso criei um grupo para mudar a posição dos vértices: para isso multiplico o resultado do grupo anterior pela normal dos vértices, depois adiciono essa mudança a posição de cada vértices, que vai ser na direção perpendicular ao vértices (o vetor normal de cada vértice), criando este efeito de expansão:
 
 ![Diagrama Vertices](https://media.discordapp.net/attachments/1163146681064357908/1191715793948389427/image.png?ex=65a672d2&is=6593fdd2&hm=063bbb9536e778aec98c037a7f9e78307828328dcfaf67f170d1aaa3558ff51c&=&format=webp&quality=lossless&width=498&height=363)
@@ -80,7 +86,11 @@ Recebemos o valor para a progressão da onda, ou seja onde está o anel, e usamo
 
 
 
-Depois disso, crio uma secção à parte, esta secção recebe o ponto de impacto (FocalPoint), normaliza este vetor para obter a direção, e neste caso, como estamos a aplicar uma esfera de tamanho 1, dividimos por 2, pois queremos o comprimento de vetor a 0.5, já que o raio da esfera seria 0.5 e o diâmetro 1, as esferas neste caso teriam de ter sempre tamanho 1. Depois subtraímos a direção pela posição no objeto, para termos a posição inicial da shockwave no objeto. O node da length dá-nos a distância até esta posição inicial no objeto:
+Depois disso, crio uma secção à parte, esta secção recebe o ponto de impacto (FocalPoint), normaliza este vetor para obter a direção. 
+
+Neste caso, como estamos a aplicar uma esfera de tamanho 1, dividimos por 2, pois queremos o comprimento de vetor a 0.5, já que o raio da esfera seria 0.5 e o diâmetro 1, as esferas neste caso teriam de ter sempre tamanho 1. 
+
+Depois subtraímos a direção pela posição no objeto, para termos a posição inicial da shockwave no objeto. O node da length dá-nos a distância até esta posição inicial no objeto:
 
 ![Nodes for focal point](https://media.discordapp.net/attachments/1163146681064357908/1191719421551583293/image.png?ex=65a67633&is=65940133&hm=92cedcc69fa72013445ccdcda41f7ebbbfda8c5eee2b002fd4c3015b16e6b37c&=&format=webp&quality=lossless&width=1077&height=668)
 
@@ -88,7 +98,9 @@ Criei um node smoothstep para receber estes inputs, ao receber o add e o subtrac
 
 ![Smoothstep Node](https://media.discordapp.net/attachments/1163146681064357908/1191725059522441318/image.png?ex=65a67b73&is=65940673&hm=7d76d4e329af7f3825b69a8676e4e24f8ffc776277d1e37f4129d172bce63e37&=&format=webp&quality=lossless&width=593&height=668)
 
-Dou este resultado a um One Minus node, como o smoothstep vai estar sempre compreendido entre 0 e 1, o one minus acaba por nos dar a diferença do seu input. Dando o valor oposto ao smoothstep. Quando multiplicamos os dois resultados, tudo o que está a 0 em ambos é removido no outro, e onde não houver zeros, ficamos com um gradiente, que é mais forte no centro (onde ambos os inputs têm valor mais alto):
+Dou este resultado a um One Minus node, como o smoothstep vai estar sempre compreendido entre 0 e 1, o one minus acaba por nos dar a diferença do seu input. Dando o valor oposto ao smoothstep. 
+
+Quando multiplicamos os dois resultados, tudo o que está a 0 em ambos é removido no outro, e onde não houver zeros, ficamos com um gradiente, que é mais forte no centro (onde ambos os inputs têm valor mais alto):
 
 ![One minus node](https://media.discordapp.net/attachments/1163146681064357908/1191726049508200528/image.png?ex=65a67c5f&is=6594075f&hm=526614aadb30b5debd7fc4452281b78f64a4b7bf5170a332b09b0662bedb5e47&=&format=webp&quality=lossless&width=895&height=670)
 
@@ -108,7 +120,7 @@ Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/1PPWpBOCNbuVd
 Temos agora o efeito pretendido, mas não o queremos a repetir com o tempo como está agora, ou seja o valor da progressão da onda vai deixar de ser oscilante, mas sim um valor que o programa controla, e queremos que comece onde haja colisões, para isso temos que criar um script que trate de dar os valores corretos ao shader.
 
 Antes disso, criei um subshader mais organizado para o efeito.
-Este subshader recebe cinco variaveis:
+Este subshader recebe 4 variaveis:
 - Progression: Distância do ponto de impacto entre 0 e 1, em que 0 é no ponto de impacto e 1 o ponto final;
 - Focalpoint: O ponto inicial de impacto;
 - Amplitude: A altura da onda;
@@ -120,7 +132,7 @@ O subshader devolve o anel para ser desenhado.
 
 Agora com o subshader feito, vamos criar o script que deteta as colisões e dá os dados da mesma ao shader:
 
-No nosso script temos 4 variáveis:
+No nosso script temos 6 variáveis:
 - material: O material do nosso objeto, que neste caso tem que ter o shader criado anteriormente;
 - defaultFocalPoint: Esta variável é criada como a posição nula, para quando a onda termina, voltarmos a posição inicial para evitar deformações;
 - maxFocalPoints: Isto define quantas ondas permitimos ao mesmo tempo no nosso objeto, terá sempre um *hard limit* definido pelo shader;
@@ -135,12 +147,16 @@ Assim que o programa corre, recebemos o material no objeto, definimos o defaultF
 ![Start Method](https://media.discordapp.net/attachments/1163146681064357908/1191737523362336788/image.png?ex=65a6870e&is=6594120e&hm=6efd582b1e89373957e93fe0fb3808bac06d5d90b334405b879368f38e2488f7&=&format=webp&quality=lossless&width=748&height=403)
 
 Durante o update, percorremos todos as ondas possíveis, crio uma variavel auxiliar para guardar a progressão da onda atual. 
-Depois verifico se esta progressão está compreendida entre 0 e 1, se sim, incrementamos e multiplicamos a incrementação pela frequencia e pelo Time.deltaTime para que seja constante entre dispositivos, e não depender da frame rate. Depois atualizamos o valor da progressão da onda atual por este valor.
+
+Depois verifico se esta progressão está compreendida entre 0 e 1, se sim, incrementamos e multiplicamos a incrementação pela frequencia e pelo Time.deltaTime para que seja constante entre dispositivos, e não depender da frame rate. 
+
+Depois atualizamos o valor da progressão da onda atual por este valor.
+
 Caso a progressão seja maior ou igual a 1, voltamos a pôr a onda na posição inicial, e mudamos a progressão para 0 que é também o valor inicial da progressão
 
 ![Update Method](https://media.discordapp.net/attachments/1163146681064357908/1191816652078207089/image.png?ex=65a6d0c0&is=65945bc0&hm=285a5095623d0d9aa575ecddf0772b6315e37c9cb1717fb56585c603efd68fbc&=&format=webp&quality=lossless&width=788&height=650)
 
-Quando detetamos uma colisão, recebemos todos os contact points desta colisão, e onde eles ocorrerem queremos iniciar uma onda. Para isso, usamos o InverseTransformPoint que nos dá a posição local, em relação ao transform do objeto em que o script está, do ponto de colisão. Damos este posição ao primeiro FocalPoint disponível, que no caso duma primeira colisão seria o 0.
+Quando detetamos uma colisão, recebemos todos os contact points desta colisão, e onde eles ocorrerem queremos iniciar uma onda. \nPara isso, usamos o InverseTransformPoint que nos dá a posição local, em relação ao transform do objeto em que o script está, do ponto de colisão. Damos este posição ao primeiro FocalPoint disponível, que no caso duma primeira colisão seria o 0.
 
 Uso aqui também a expressão "index % maxFocalPoints" que me dará apenas o resto da divisão pelos focalPoints, garantido assim que apenas verificaremos o número de waves maximas definidas pelo script. Se por exemplo tivéssemos maxFocalPoints = 3, teríamos sempre os valores 0, 1 e 2.
 
@@ -324,7 +340,10 @@ Não arranjei solução correta para este problema, então assumi a posição de
 
 ![Script com default diferente](https://media.discordapp.net/attachments/1163146681064357908/1192530783609552926/image.png?ex=65a969d6&is=6596f4d6&hm=cedb843adf77c770e40fb04723132f200d35d72c99674b9ad1ead913555c8e29&=&format=webp&quality=lossless&width=743&height=353)
 
-**Conclusões finais:**
+
+![Final demo scene](https://media.discordapp.net/attachments/1163146681064357908/1192533079840014336/image.png?ex=65a96bfa&is=6596f6fa&hm=b0f95300f2255376646c70ff43a76f4bc928949ca026ef5e3de8d3aafccf3956&=&format=webp&quality=lossless&width=1242&height=670)
+
+###*Conclusões finais:**
 
 Durante este trabalho ganhei bastante conhecimento sobre shaders, antes sentia que muitas coisas eram "magia" porque não percebia como funcionavam e também nao sabia sequer as possibilidade que um shader tem por serem muitas, depois disto descobri muito do que se pode fazer, e apercebi-me quão extenso é.
 Relembrei-me também que não devo tentar perceber as coisas sem as questionar, se tivesse questionado a normalização e o node *fraction* mais cedo teria poupado muita dor de cabeça
