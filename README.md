@@ -2,7 +2,7 @@
 ## **Shader com colisões**
 
 
-
+![Final Shader Images](https://media.discordapp.net/attachments/1163146681064357908/1192491092122292325/image.png?ex=65a944df&is=6596cfdf&hm=65a6e68bf7295b35c9ff6d92a5ae85a8d1a48d6ce678b4c4d02c4f634dd84b70&=&format=webp&quality=lossless&width=1440&height=293)
 
 #### Trabalho realizdo por:
 
@@ -255,7 +255,9 @@ Novo efeito:
 
 ![New Intersection](https://media.discordapp.net/attachments/1163146681064357908/1192443922430046299/image.png?ex=65a918f1&is=6596a3f1&hm=49da5ae208590303f744b720d2470935ba03eee7f803f7939f943eac79d479ee&=&format=webp&quality=lossless)
 
-Para 
+Para terminar fiz uma demo scene a mostar o shader em diferentes cenários e diferentes padrões e efeitos que se consegues com o shader:
+
+![Demo scene](https://media.discordapp.net/attachments/1163146681064357908/1192490809065480313/image.png?ex=65a9449c&is=6596cf9c&hm=75477fc149d55c00f889995eb0e6cc58e90f58d2c8930e11794b1742124ba831&=&format=webp&quality=lossless&width=753&height=670)
 
 Conclusões finais:
 
