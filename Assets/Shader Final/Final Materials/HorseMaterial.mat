@@ -128,7 +128,7 @@ Material:
     - _SecondIntersectionDensity: 80
     - _SecondIntersectionMovement: 10
     - _SecondIntersectionStrength: 0.3
-    - _Size: 0.1
+    - _Size: 0.15
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
