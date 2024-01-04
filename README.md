@@ -156,7 +156,8 @@ Caso a progressão seja maior ou igual a 1, voltamos a pôr a onda na posição 
 
 ![Update Method](https://media.discordapp.net/attachments/1163146681064357908/1191816652078207089/image.png?ex=65a6d0c0&is=65945bc0&hm=285a5095623d0d9aa575ecddf0772b6315e37c9cb1717fb56585c603efd68fbc&=&format=webp&quality=lossless&width=788&height=650)
 
-Quando detetamos uma colisão, recebemos todos os contact points desta colisão, e onde eles ocorrerem queremos iniciar uma onda. \nPara isso, usamos o InverseTransformPoint que nos dá a posição local, em relação ao transform do objeto em que o script está, do ponto de colisão. Damos este posição ao primeiro FocalPoint disponível, que no caso duma primeira colisão seria o 0.
+Quando detetamos uma colisão, recebemos todos os contact points desta colisão, e onde eles ocorrerem queremos iniciar uma onda.  
+Para isso, usamos o InverseTransformPoint que nos dá a posição local, em relação ao transform do objeto em que o script está, do ponto de colisão. Damos este posição ao primeiro FocalPoint disponível, que no caso duma primeira colisão seria o 0.
 
 Uso aqui também a expressão "index % maxFocalPoints" que me dará apenas o resto da divisão pelos focalPoints, garantido assim que apenas verificaremos o número de waves maximas definidas pelo script. Se por exemplo tivéssemos maxFocalPoints = 3, teríamos sempre os valores 0, 1 e 2.
 
