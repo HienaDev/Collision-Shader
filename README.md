@@ -259,6 +259,48 @@ Para terminar fiz uma demo scene a mostar o shader em diferentes cenários e dif
 
 ![Demo scene](https://media.discordapp.net/attachments/1163146681064357908/1192490809065480313/image.png?ex=65a9449c&is=6596cf9c&hm=75477fc149d55c00f889995eb0e6cc58e90f58d2c8930e11794b1742124ba831&=&format=webp&quality=lossless&width=753&height=670)
 
-Conclusões finais:
+Shader final com o nome ShieldCollisionEffect:
 
+![Final shader](https://media.discordapp.net/attachments/1163146681064357908/1192491727995547778/image.png?ex=65a94577&is=6596d077&hm=477912de7a16f1910ff2e135ef32c47f4f72e842b0ffd9380fd71bb3d1b600e2&=&format=webp&quality=lossless&width=1418&height=670)
+
+Até este ponto achava que estava concluído e estava a acabar o relatório, mas estava determinado a perceber porque não funcionava em meshs diferentes de esferas, em cubos funcionava mas mal, inicialmente achei que era porque os cubos têm apenas 6 vértices, e era verdade que era por isso que a deformação da mesh era estranha, porque só deformava nos cantos:
+
+Cubo a deformar apenas nos cantos: [Vídeo](https://drive.google.com/file/d/13AGugJlws0gF5y56HlvQ78bH8QCOatkU/view?usp=sharing)
+
+Depois voltei ao meu subshader de impacto e comecei a mexer em alguns valores, e mudei a divisão para 1.5:
+
+![Shader division](https://media.discordapp.net/attachments/1163146681064357908/1192504358127026196/image.png?ex=65a9513a&is=6596dc3a&hm=3ba32071d3cf33a3070168d7f8429ba6798fb77a9559c07f73d6ae47975b4c06&=&format=webp&quality=lossless&width=597&height=360)
+
+Depois disto a wave ficou quase perfeita nos cantos do cubo, mas no centro não:
+
+Cubo com wave boa nos cantos: [Vídeo](https://drive.google.com/file/d/186dhD4Vr6KdTmyrwCNo2U7QKLnGrvSOI/view?usp=sharing)
+
+Lembrei-me que nesta fase do cubo, temos um quadrado e caso o cubo tivesse 1 de tamanho (que é o caso), estas seriam as medidas:
+
+![Cube size](https://media.discordapp.net/attachments/1163146681064357908/1192505553939865711/image.png?ex=65a95257&is=6596dd57&hm=63e7acd662ba0840ac9d1c23b79b9c91507264b6fceaef6be7627bd1bd153c25&=&format=webp&quality=lossless&width=305&height=288)
+
+Logo nos cantos a distância seria aproximadamente 0.7, e quando dividimos 1 por 1.5 temos 0.67, que é bastante perto de 0.7.
+Isto fez-me perceber que o problema poderia estar aí, pensei inicalmente que cada mesh precisaria de uma divisão diferente, e que isto funcionaria apenas para esferas porque são as unicas com o mesmo tamanho em todas as direções.
+Apesar de achar que normalizar o vetor era necessário para obter a direção, decidi remover este componente, já que esta divisão me estava a dar problemas, e só era necessária por causa da normalização, que no final de contas estava apenas a por os vetores todos com o mesmo tamanho, que não era ideal para qualquer objeto que não uma esfera.
+Liguei o focal point diretamente a subtração da posição no objeto e agora funcionava em qualquer mesh:
+
+Efeito em qualquer mesh: [Vídeo](https://drive.google.com/file/d/1oUpm9tlhCR86oAzBHN_4ssLzoyfJ9OZq/view?usp=sharing)
+
+Agora tinha um novo problema: como visto no vídeo anterior a onda não propaga até ao final do objeto, apercebi-me que, de novo, ambos no shader de impacto e no script, eu limitava a progressão até 1, que funcionava perfeitamente para esferas, e se quisesse o efeito a funcionar em esferas de tamanho 1, era ideal. Mas por exemplo na estátua de cavalo do vídeo anterior com tamanho maior que 1 não iria funcionar.
+Esta limitação era feita pelo  node *fraction* que me devolvia sempre os valores decimais da progressão, logo nunca chegaria a maior que 1, e caso o valor da progressão continuasse a subir para além de 1, a onda iria repetir, removi o node *fraction* e aumentei o limite de progressão no script:
+
+![Removing fraction node](https://media.discordapp.net/attachments/1163146681064357908/1192511620094644335/image.png?ex=65a957fe&is=6596e2fe&hm=0f7c96f3fa8f3f1be170519c2e3da3db7e96b40b73a6fee98d8287b7599a23f4&=&format=webp&quality=lossless&width=833&height=495)
+
+![Removing progression limit](https://media.discordapp.net/attachments/1163146681064357908/1192511769898389545/image.png?ex=65a95821&is=6596e321&hm=ae588386d6c370eebd0c2419a7954074bbb4f8fc99e13d955702d248b55753e9&=&format=webp&quality=lossless&width=732&height=598)
+
+Com isto finalmente consegui a propagação da onda por toda a mesh:
+
+Onda completa em qualquer mesh: [Vídeo](https://drive.google.com/file/d/1jHvZ51FCers1wT5oelVwNkzbcFY49qUI/view?usp=sharing)
+
+**Conclusões finais:**
+
+Durante este trabalho ganhei bastante conhecimento sobre shaders, antes sentia que muitas coisas eram "magia" porque não percebia como funcionavam e também nao sabia sequer as possibilidade que um shader tem por serem muitas, depois disto descobri muito do que se pode fazer, e apercebi-me quão extenso é.
+Infelizmente não consegui fazer o que pretendia de início que era fazer um shader de colisões que funcionaria em qualquer mesh.
+Para sprites ou texturas2D como num plano, não seria dificil alterar, pois ja tinha feito isso previamente e bastaria mudar as coordenadas de x y z para x z (que na prespetiva da sprite seria como um eixo x y).
+Para outras meshs não sei como faria
 aprendi também que ao gravar os objetos como prefabs ao invés de os ter apenas na *scene*, reduz imenso o tamanho que a scene ocupa no ficheiro, pois ao invés de gravar os objetos na *scene*, grava-os como ficheiro, o que foi uma grande salvação quando a *scene* tinha mais de 100mb e já estava a usar o git lfs e o github não permitia mais que isto: [Link para a discussão onde descobri isto](https://forum.unity.com/threads/git-and-unity-scene-files-larger-than-100mb.1038838/)

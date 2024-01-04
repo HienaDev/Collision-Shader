@@ -47,13 +47,13 @@ public class DetectCollision : MonoBehaviour
 
             float aux = material.GetFloat($"_Progression{i}");
 
-            if (aux > 0 && aux < 1)
+            if (aux > 0 && aux < 5)
             {
                 aux += 1f * frequency * Time.deltaTime;
                 material.SetFloat($"_Progression{i}", aux);
             }
 
-            if (aux >= 1)
+            if (aux >= 5)
             {
                 material.SetFloat($"_Progression{i}", 0);
                 material.SetVector($"_FocalPoint{i}", defaultFocalPoint);
@@ -67,7 +67,7 @@ public class DetectCollision : MonoBehaviour
         foreach (ContactPoint  point in collision.contacts)
         {
             
-            //Debug.Log(transform.InverseTransformPoint(point.point));
+            Debug.Log(transform.InverseTransformPoint(point.point));
 
             material.SetVector($"_FocalPoint{index % maxFocalPoints}", transform.InverseTransformPoint(point.point));
 
@@ -77,7 +77,7 @@ public class DetectCollision : MonoBehaviour
 
             index++;
 
-            
+            Debug.Log(index);
 
             //if (index == int.MaxValue) index = 0;
 

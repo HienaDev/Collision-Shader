@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SphereProBuilder ShieldCollisionEffect 1
-  m_Shader: {fileID: -6465566751694194690, guid: 4b8d6d160bfffa24cad106877fca41bf,
+  m_Shader: {fileID: -6465566751694194690, guid: 47c5214e139c7e340bc095dab2800172,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -30,7 +30,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -158,7 +158,7 @@ Material:
     - _SecondIntersectionDensity: 80
     - _SecondIntersectionMovement: 10
     - _SecondIntersectionStrength: 0.3
-    - _Size: 0.05
+    - _Size: 0.01
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
