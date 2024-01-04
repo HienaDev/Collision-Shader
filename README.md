@@ -16,39 +16,38 @@
 
 Comecei por procurar o “óbvio” e pesquisar como fazer um *shader* que reagia a colisões, com isso encontrei dois videos:
 
-[*Shader* Graph Forcefield: Update](https://www.youtube.com/watch?v=P47yMdetoE4&ab_channel=WilmerLinGASchool) - Acabei por sentir que este vídeo não fazia o que queria, usava raycasts para determinar os impactos, e não colisões, mas retirei de lá a ideia de usar um ripple effect.
+[*Shader* Graph Forcefield: Update](https://www.youtube.com/watch?v=P47yMdetoE4&ab_channel=WilmerLinGASchool) - Acabei por sentir que este vídeo não fazia o que queria, usava *raycasts* para determinar os impactos, e não colisões, mas retirei de lá a ideia de usar um *ripple effect*.
 
 [Energy Shield Effect in Unity URP *Shader* Graph](https://www.youtube.com/watch?v=o4CGL2YXs5k&ab_channel=Imphenzia) - Este fazia quase tudo o que queria e usei como referência para começar.
 
-Depois disto achei que procurar por um ripple effect seria o melhor começo, pois a partir daí, caso conseguisse determinar a posição das colisões, poderia enviar essa informação para o *shader*, e causar os ripple effects no local da colisão.
+Depois disto achei que procurar por um *ripple effect* seria o melhor começo, pois a partir daí, caso conseguisse determinar a posição das colisões, poderia enviar essa informação para o *shader*, e causar os *ripple effects* no local da colisão.
 
-Pesquisei então por ripple effects e encontrei este video: 
+Pesquisei então por *ripple effects* e encontrei este video: 
 
 [Shockwave *Shader* Graph - How to make a shock wave *shader* in Unity URP/HDRP](https://www.youtube.com/watch?v=dFDAwT5iozo&ab_channel=GameDevBill) 
 
 Este video foi um bom começo, e permitiu-me chegar a um resultado parecido ao efeito que queria:
 
-![Efeito ripple em sprite](https://media.discordapp.net/attachments/1163146681064357908/1191715615648530492/image.png?ex=65a672a7&is=6593fda7&hm=b81a781def3c2e51267f32dceef996ccaa3d4d1447a411394691035881e6ec89&=&format=webp&quality=lossless&width=746&height=407)
+![Efeito *ripple* em *sprite*](https://media.discordapp.net/attachments/1163146681064357908/1191715615648530492/image.png?ex=65a672a7&is=6593fda7&hm=b81a781def3c2e51267f32dceef996ccaa3d4d1447a411394691035881e6ec89&=&format=webp&quality=lossless&width=746&height=407)
                                                     
 Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/1o_DCMi-iCpm2Wfh4DWscVADBldpeMY7n/view?usp=sharing)
 
-Mas depois disto senti que tinha pouco controlo, no primeiro que era específico para sprites senti-me com mais controlo pois o *shader* permitia mudar o focal point num espaço 2D facilmente, e consegui também fazer um efeito com mais que um ripple:
+Mas depois disto senti que tinha pouco controlo, no primeiro que era específico para *sprites* senti-me com mais controlo pois o *shader* permitia mudar o *focal point* num espaço 2D facilmente, e consegui também fazer um efeito com mais que um *ripple*:
 
-![Efeito ripple em sprite](https://media.discordapp.net/attachments/1163146681064357908/1191715682824491098/image.png?ex=65a672b7&is=6593fdb7&hm=a546eec052eab20fb6a1575d3975ea9a1e95d002b209614dc0fbb630bba6631b&=&format=webp&quality=lossless&width=696&height=272)
+![Efeito *ripple* em *sprite*](https://media.discordapp.net/attachments/1163146681064357908/1191715682824491098/image.png?ex=65a672b7&is=6593fdb7&hm=a546eec052eab20fb6a1575d3975ea9a1e95d002b209614dc0fbb630bba6631b&=&format=webp&quality=lossless&width=696&height=272)
 
 Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/1GrYGJ1sYELv5E832-VCtKjNdcqq5AHFU/view?usp=sharing)
 
-Mas no caso da esfera, senti que tinha pouco controlo, e mesmo depois de algumas mudanças, e alterando o focal pointo para um Vector3, eu conseguia controlá-lo facilmente no eixo do X e do Y, mas estava com dificuldades no eixo do Z, garantidamente que era por não ter entendido tudo o que retirei do vídeo anterior, mas decidi voltar a pesquisar.
+Mas no caso da esfera, senti que tinha pouco controlo, e mesmo depois de algumas mudanças, e alterando o *focal point* para um Vector3, eu conseguia controlá-lo facilmente no eixo do X e do Y, mas estava com dificuldades no eixo do Z, garantidamente que era por não ter entendido tudo o que retirei do vídeo anterior, mas decidi voltar a pesquisar.
 
 Com isso encontrei este vídeo:
 [Unity *Shader* Graph VFX - Bubble Shield (Tutorial)](https://www.youtube.com/watch?v=jdAbVkre8cw&ab_channel=ABitOfGameDev)
 
-Com este tutorial aprendi algus efeitos como o twirl, que achei que seriam interessantes para o *shader* final, mas este tutorial usava uma esfera com UVs alterados, e eu quero criar um *shader* que funcione com qualquer objeto, especialmente os default do Unity:
+Com este tutorial aprendi algus efeitos como o *twirl*, que achei que seriam interessantes para o *shader* final, mas este tutorial usava uma esfera com UVs alterados, e eu quero criar um *shader* que funcione com qualquer objeto, especialmente os *default* do Unity:
 
 ![Twirl](https://media.discordapp.net/attachments/1163146681064357908/1191715707428274286/image.png?ex=65a672bd&is=6593fdbd&hm=9607fa7bc45a8512d1ff2fc9c035e538c2bc5bd26930d70e9f256543a60ae93e&=&format=webp&quality=lossless&width=590&height=391)
 
-
-Apesar de o material estar a mudar, a esfera em si não mudava, suspeitei que fosse  por a esfera do vídeo ter UVs alterados, não tinha maya como no vídeo mas instalei blender para confirmar a teoria, após criar a esfera com os UVs como no tutorial, a esfera continuou sem deformação, acabei por não entender o porquê:
+Apesar de o material estar a mudar, a esfera em si não mudava, suspeitei que fosse  por a esfera do vídeo ter UVs alterados, não tinha Maya como no vídeo mas instalei Blender para confirmar a teoria, após criar a esfera com os UVs como no tutorial, a esfera continuou sem deformação, acabei por não entender o porquê:
 
 ![Sem deformação](https://media.discordapp.net/attachments/1163146681064357908/1191715738969448558/image.png?ex=65a672c5&is=6593fdc5&hm=49641b2a1b3b3a8482846a2861403279ea0a20d5d69e98554ef42e5b1e06710e&=&format=webp&quality=lossless&width=527&height=473)
 
@@ -57,12 +56,12 @@ Mas depois disto achei que já tinha material suficiente para começar o meu *sh
 
 ## **Comecei a fazer o meu *shader*:**
 
-Criei um timer que me permite ir de 0 a 1 com a função sen:
+Criei um temporizador que me permite ir de 0 a 1 com a função seno:
 ![Timer Sin](https://media.discordapp.net/attachments/1163146681064357908/1191731228030795877/image.png?ex=65a68132&is=65940c32&hm=ad78c97a8120f0bcace8d953803991cc787aef3f74d375555e10e55592207bee&=&format=webp&quality=lossless&width=1348&height=550)
 
-Em vez de usar diretamente o sine time, usamos o multiply pelo meio, para podemos alterar a frequência do time, e depois fazemos o sine, assim mantemos o intervalo entre 0 e 1 mas mudamos quanto oscila por segundo.
+Em vez de usar diretamente o *sine time*, usamos o *multiply* pelo meio, para podemos alterar a frequência do *time*, e depois fazemos o *sine*, assim mantemos o intervalo entre 0 e 1 mas mudamos quanto oscila por segundo.
 
-Criei isto com o intuito de começar por ter um bubbling effect, então a oscilação constante do sen era perfeita para isso.
+Criei isto com o intuito de começar por ter um *bubbling effect*, então a oscilação constante do sen era perfeita para isso.
 
 Depois disso criei um grupo para mudar a posição dos vértices: para isso multiplico o resultado do grupo anterior pela normal dos vértices, depois adiciono essa mudança a posição de cada vértices, que vai ser na direção perpendicular ao vértices (o vetor normal de cada vértice), criando este efeito de expansão:
 
@@ -80,7 +79,7 @@ Usando agora alguns componentes que vi serem usados num dos vídeos, criei o ane
 
 ![Nodes for ring](https://media.discordapp.net/attachments/1163146681064357908/1191719104504143912/image.png?ex=65a675e7&is=659400e7&hm=cbdd74181728155634a64ebe56961cb281fd19a572a6055e7d3af4076e0f8f8f&=&format=webp&quality=lossless&width=1440&height=540)
 
-Recebemos o valor para a progressão da onda, ou seja onde está o anel, e usamos o componente fraction que nos dá a parte decimal do valor, depois pegamos neste valor e adicionamos-lhe o size, e noutro node subtraímos o size a ele, um exemplo disto: caso o valor estivesse no 0.6, e o size fosse 0.1, teríamos os valores 0.7 e 0.5, tendo assim uma wave de tamanho 0.2:
+Recebemos o valor para a progressão da onda, ou seja onde está o anel, e usamos o componente *fraction* que nos dá a parte decimal do valor, depois pegamos neste valor e adicionamos-lhe o size, e noutro node subtraímos o size a ele, um exemplo disto: caso o valor estivesse no 0.6, e o size fosse 0.1, teríamos os valores 0.7 e 0.5, tendo assim uma wave de tamanho 0.2:
 
 ![Fraction node](https://media.discordapp.net/attachments/1163146681064357908/1191719249505419346/image.png?ex=65a6760a&is=6594010a&hm=fc932fe8d051d077c5ca6ac755a71c551c5b2024e7b3c446f079f1170c0d479e&=&format=webp&quality=lossless&width=837&height=643)
 
@@ -92,7 +91,7 @@ Neste caso, como estamos a aplicar uma esfera de tamanho 1, dividimos por 2, poi
 
 Depois subtraímos a direção pela posição no objeto, para termos a posição inicial da shockwave no objeto. O node da length dá-nos a distância até esta posição inicial no objeto:
 
-![Nodes for focal point](https://media.discordapp.net/attachments/1163146681064357908/1191719421551583293/image.png?ex=65a67633&is=65940133&hm=92cedcc69fa72013445ccdcda41f7ebbbfda8c5eee2b002fd4c3015b16e6b37c&=&format=webp&quality=lossless&width=1077&height=668)
+![Nodes for *focal point*](https://media.discordapp.net/attachments/1163146681064357908/1191719421551583293/image.png?ex=65a67633&is=65940133&hm=92cedcc69fa72013445ccdcda41f7ebbbfda8c5eee2b002fd4c3015b16e6b37c&=&format=webp&quality=lossless&width=1077&height=668)
 
 Criei um node smoothstep para receber estes inputs, ao receber o add e o subtract, obtemos os limites do nosso anel e a length dá-nos o ponto inicial a partir de qual o anel se afasta e expande ao longo da *mesh*:
 
@@ -117,7 +116,7 @@ Finalmente, damos este resultado ao nosso grupo que altera a posição dos vért
 
 Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/1PPWpBOCNbuVdiQQhesbG8JtEANb8bVj7/view?usp=sharing)
 
-Temos agora o efeito pretendido, mas não o queremos a repetir com o tempo como está agora, ou seja o valor da progressão da onda vai deixar de ser oscilante, mas sim um valor que o programa controla, e queremos que comece onde haja colisões, para isso temos que criar um script que trate de dar os valores corretos ao *shader*.
+Temos agora o efeito pretendido, mas não o queremos a repetir com o tempo como está agora, ou seja o valor da progressão da onda vai deixar de ser oscilante, mas sim um valor que o programa controla, e queremos que comece onde haja colisões, para isso temos que criar um *script* que trate de dar os valores corretos ao *shader*.
 
 Antes disso, criei um sub*shader* mais organizado para o efeito.
 Este sub*shader* recebe 4 variaveis:
@@ -130,9 +129,9 @@ O sub*shader* devolve o anel para ser desenhado.
 
 ![SubShader](https://media.discordapp.net/attachments/1163146681064357908/1191816005484286033/image.png?ex=65a6d026&is=65945b26&hm=d80b4b31cfc8b9441a76b6e047f1d59048a6f3c02dba2e52b8bfa9fcc8144e97&=&format=webp&quality=lossless&width=1440&height=526)
 
-Agora com o sub*shader* feito, vamos criar o script que deteta as colisões e dá os dados da mesma ao *shader*:
+Agora com o sub*shader* feito, vamos criar o *script* que deteta as colisões e dá os dados da mesma ao *shader*:
 
-No nosso script temos 6 variáveis:
+No nosso *script* temos 6 variáveis:
 - material: O material do nosso objeto, que neste caso tem que ter o *shader* criado anteriormente;
 - defaultFocalPoint: Esta variável é criada como a posição nula, para quando a onda termina, voltarmos a posição inicial para evitar deformações;
 - maxFocalPoints: Isto define quantas ondas permitimos ao mesmo tempo no nosso objeto, terá sempre um *hard limit* definido pelo *shader*;
@@ -140,11 +139,11 @@ No nosso script temos 6 variáveis:
 - destroyCollidedObjects: Um booleano que da a opção ao utilizar de destruir os objetos que colidem com o objeto ou não;
 - frequency: Quão rapido a onda se propaga.
 
-![Variables script](https://media.discordapp.net/attachments/1163146681064357908/1191816442946002994/image.png?ex=65a6d08e&is=65945b8e&hm=4331287f3d2dfb8c6447b8320c47b01212e7a5212adb24f6e37f322473ca78c0&=&format=webp&quality=lossless&width=615&height=293)
+![Variables *script*](https://media.discordapp.net/attachments/1163146681064357908/1191816442946002994/image.png?ex=65a6d08e&is=65945b8e&hm=4331287f3d2dfb8c6447b8320c47b01212e7a5212adb24f6e37f322473ca78c0&=&format=webp&quality=lossless&width=615&height=293)
 
 **Método Start**
 
-Assim que o programa corre, recebemos o material no objeto, definimos o defaultFocalPoint para dar reset as ondas, e damos este defaultFocalPoint para o focal point de cada onda para que comece tudo sem ondas. Inicializamos também o índice a 0.
+Assim que o programa corre, recebemos o material no objeto, definimos o defaultFocalPoint para dar reset as ondas, e damos este defaultFocalPoint para o *focal point* de cada onda para que comece tudo sem ondas. Inicializamos também o índice a 0.
 
 ![Start Method](https://media.discordapp.net/attachments/1163146681064357908/1191737523362336788/image.png?ex=65a6870e&is=6594120e&hm=6efd582b1e89373957e93fe0fb3808bac06d5d90b334405b879368f38e2488f7&=&format=webp&quality=lossless&width=748&height=403)
 
@@ -164,9 +163,9 @@ Caso a progressão seja maior ou igual a 1, voltamos a pôr a onda na posição 
 
 Quando detetamos uma colisão, recebemos todos os contact points desta colisão, e onde eles ocorrerem queremos iniciar uma onda.
 
-Para isso, usamos o InverseTransformPoint que nos dá a posição local, em relação ao transform do objeto em que o script está, do ponto de colisão. Damos este posição ao primeiro FocalPoint disponível, que no caso duma primeira colisão seria o 0.
+Para isso, usamos o InverseTransformPoint que nos dá a posição local, em relação ao transform do objeto em que o *script* está, do ponto de colisão. Damos este posição ao primeiro FocalPoint disponível, que no caso duma primeira colisão seria o 0.
 
-Uso aqui também a expressão "index % maxFocalPoints" que me dará apenas o resto da divisão pelos focalPoints, garantido assim que apenas verificaremos o número de waves maximas definidas pelo script. Se por exemplo tivéssemos maxFocalPoints = 3, teríamos sempre os valores 0, 1 e 2.
+Uso aqui também a expressão "index % maxFocalPoints" que me dará apenas o resto da divisão pelos focalPoints, garantido assim que apenas verificaremos o número de waves maximas definidas pelo *script*. Se por exemplo tivéssemos maxFocalPoints = 3, teríamos sempre os valores 0, 1 e 2.
 
 Depois disto inicializo o valor da progressão a 0.001, para que o Update saiba que tem que começar a incrementar a progressão naquele nível.
 
@@ -252,7 +251,7 @@ Apesar de conseguir replicar o efeito no video, não consegui aplicá-lo ao meu 
 
 Efeito com 2 esferas: [Vídeo](https://drive.google.com/file/d/10IhK5XWkaiuZDg2ug4eO6ce0A4i8IBWy/view?usp=sharing)
 
-No dia seguinte, por sorte, apareceu-me este vídeo, que mostrava um "museu" de *shaders*, e neste vídeo tinha o *shader* do intersect outra vez, mas que funcionava de outra maneira: [10 *Shaders* in 10 Minutes - Unity *Shader* Graph](https://www.youtube.com/watch?v=vje0x1BNpp8&t=264s&ab_channel=DanielIlett)
+No dia seguinte, por sorte, apareceu-me este vídeo, que mostrava um "museu" de *shaders*, e neste vídeo tinha o *shader* de intersecção outra vez, mas que funcionava de outra maneira: [10 *Shaders* in 10 Minutes - Unity *Shader* Graph](https://www.youtube.com/watch?v=vje0x1BNpp8&t=264s&ab_channel=DanielIlett)
 
 Com este vídeo, consegui finalmente fazer a intersecção no meu *shader*, ja que este recebia a *base color*, e aplicava o efeito por cima da *base color*:
 
@@ -266,13 +265,13 @@ A variável IntersectionDepth, permite regular o tamanho da nossa interseção, 
 
 ![*Shader* intersection 1](https://media.discordapp.net/attachments/1163146681064357908/1192447101792165938/image.png?ex=65a91be7&is=6596a6e7&hm=b832a4a3151820cb433be4e650e51db35625034bde10cea15bafbbbf5c238ab5&=&format=webp&quality=lossless&width=1440&height=580)
 
-Tudo até este ponto tinha visto no vídeo anterior, é neste novo vídeo que foi introduzida a diferença, ao invês de receber o valor *alpha* da cor e o inserir no campo *alpha* do nosso *shader*, que removia a cor do resto do escudo (o que fazia o efeito não funcionar, pois removia o escudo por inteiro), este *shader* faz um lerp, ou seja, onde for transparente, fica com a cor do escudo, caso não seja, fica a cor da interseção.
+Tudo até este ponto tinha visto no vídeo anterior, é neste novo vídeo que foi introduzida a diferença, ao invês de receber o valor *alpha* da cor e o inserir no campo *alpha* do nosso *shader*, que removia a cor do resto do escudo (o que fazia o efeito não funcionar, pois removia o escudo por inteiro), este *shader* faz um *lerp*, ou seja, onde for transparente, fica com a cor do escudo, caso não seja, fica a cor da interseção.
 
 A variavel IntersectionStrenght permite-nos controlar o node *power* que nos dá o valor elevado a esta IntersectionStrength, que nos dá mais controlo sobre a intensidade do escudo:
 
 ![*Shader* intersection 2](https://media.discordapp.net/attachments/1163146681064357908/1192448451980574750/image.png?ex=65a91d29&is=6596a829&hm=e30dcff84517b6b84508d16b57f42b0e8e2418d3d900f256c4c077101f5b2afe&=&format=webp&quality=lossless&width=1347&height=606)
 
-Por fim, o ruído e cor da intersecção, este ruído é extremamente parecido com o ruído do escudo em si em termos de lógica, então não acho que precise de grande explicação, tem apenas algumas variaveis para controlar quão intenso é o movimento, e quão denso o ruído é, depois, como tinha referido, tudo isto é dado a um lerp, que faz então a interpolação como referido anteriormente:
+Por fim, o ruído e cor da intersecção, este ruído é extremamente parecido com o ruído do escudo em si em termos de lógica, então não acho que precise de grande explicação, tem apenas algumas variaveis para controlar quão intenso é o movimento, e quão denso o ruído é, depois, como tinha referido, tudo isto é dado a um *lerp*, que faz então a interpolação como referido anteriormente:
 
 ![*Shader* intersection 3](https://media.discordapp.net/attachments/1163146681064357908/1192449163468750958/image.png?ex=65a91dd3&is=6596a8d3&hm=a0ea691d9be3193ccd6be9f9ee095e7ddfdd80d7e12f054dca749c998c1aedd2&=&format=webp&quality=lossless&width=1440&height=506)
 
@@ -304,15 +303,13 @@ Inicialmente achei que era porque os cubos têm apenas 6 vértices, e era verdad
 
 Cubo a deformar apenas nos cantos: [Vídeo](https://drive.google.com/file/d/13AGugJlws0gF5y56HlvQ78bH8QCOatkU/view?usp=sharing)
 
-
-
-Depois voltei ao meu sub*shader* de impacto e comecei a mexer em alguns valores, e mudei a divisão para 1.5:
+Depois voltei ao meu *subshader* de impacto e comecei a mexer em alguns valores, e mudei a divisão para 1.5:
 
 ![*Shader* division](https://media.discordapp.net/attachments/1163146681064357908/1192504358127026196/image.png?ex=65a9513a&is=6596dc3a&hm=3ba32071d3cf33a3070168d7f8429ba6798fb77a9559c07f73d6ae47975b4c06&=&format=webp&quality=lossless&width=597&height=360)
 
-Depois disto a wave ficou quase perfeita nos cantos do cubo, mas no centro não:
+Depois disto a onda ficou quase perfeita nos cantos do cubo, mas no centro não:
 
-Cubo com wave boa nos cantos: [Vídeo](https://drive.google.com/file/d/186dhD4Vr6KdTmyrwCNo2U7QKLnGrvSOI/view?usp=sharing)
+Cubo com onda boa nos cantos: [Vídeo](https://drive.google.com/file/d/186dhD4Vr6KdTmyrwCNo2U7QKLnGrvSOI/view?usp=sharing)
 
 Lembrei-me que nesta face do cubo, temos um quadrado e caso o cubo tivesse 1 de tamanho (que é o caso), estas seriam as medidas:
 
@@ -324,16 +321,17 @@ Isto fez-me perceber que o problema poderia estar aí, pensei inicalmente que ca
 
 Apesar de achar que normalizar o vetor era necessário para obter a direção, decidi remover este componente, já que esta divisão me estava a dar problemas, e só era necessária por causa da normalização, que no final de contas estava apenas a por os vetores todos com o mesmo tamanho, que não era ideal para qualquer objeto que não uma esfera.
 
-Liguei o focal point diretamente a subtração da posição no objeto e agora funcionava em qualquer *mesh*:
+Liguei o *focal point* diretamente a subtração da posição no objeto e agora funcionava em qualquer *mesh*:
 
 Efeito em qualquer *mesh*: [Vídeo](https://drive.google.com/file/d/1oUpm9tlhCR86oAzBHN_4ssLzoyfJ9OZq/view?usp=sharing)
 
 Agora tinha um novo problema: 
-Como visto no vídeo anterior a onda não propaga até ao final do objeto, apercebi-me que, de novo, ambos no *shader* de impacto e no script, eu limitava a progressão até 1, o que funcionava perfeitamente para esferas, e se quisesse o efeito a funcionar em esferas de tamanho 1, era ideal. 
+
+Como visto no vídeo anterior a onda não propaga até ao final do objeto, apercebi-me que, de novo, ambos no *shader* de impacto e no *script*, eu limitava a progressão até 1, o que funcionava perfeitamente para esferas, e se quisesse o efeito a funcionar em esferas de tamanho 1, era ideal. 
 
 Mas por exemplo na estátua de cavalo do vídeo anterior com tamanho maior que 1 não iria funcionar.
 
-Esta limitação era feita pelo  node *fraction* que me devolvia sempre os valores decimais da progressão, logo nunca chegaria a maior que 1, e caso o valor da progressão continuasse a subir para além de 1, a onda iria repetir, removi o node *fraction* e aumentei o limite de progressão no script:
+Esta limitação era feita pelo  node *fraction* que me devolvia sempre os valores decimais da progressão, logo nunca chegaria a maior que 1, e caso o valor da progressão continuasse a subir para além de 1, a onda iria repetir, removi o node *fraction* e aumentei o limite de progressão no *script*:
 
 ![Removing fraction node](https://media.discordapp.net/attachments/1163146681064357908/1192511620094644335/image.png?ex=65a957fe&is=6596e2fe&hm=0f7c96f3fa8f3f1be170519c2e3da3db7e96b40b73a6fee98d8287b7599a23f4&=&format=webp&quality=lossless&width=833&height=495)
 
@@ -343,7 +341,7 @@ Com isto finalmente consegui a propagação da onda por toda a *mesh*:
 
 Onda completa em qualquer *mesh*: [Vídeo](https://drive.google.com/file/d/1jHvZ51FCers1wT5oelVwNkzbcFY49qUI/view?usp=sharing)
 
-O problema desta resolução, é que, caso um objeto seja maior que 5 vai dar problemas outra vez, mudei o máximo para 50 no script, assumindo que a maior parte dos objetos não precisariam de mais, mas é um valor alterável caso necessário, a partir do script.
+O problema desta resolução, é que, caso um objeto seja maior que 5 vai dar problemas outra vez, mudei o máximo para 50 no *script*, assumindo que a maior parte dos objetos não precisariam de mais, mas é um valor alterável caso necessário, a partir do *script*.
 
 Para terminar dei a opção ao utilizador de usar uma textura em vez do escudo e ruído feito anteriorimente, adicionando mais duas properidades, um booleano que indica se usamos textura ou não, e uma textura, este booleano é usado como predicado antes de serem dados os valores à *Base Color*, mas mantém as ondas:
 
@@ -361,16 +359,16 @@ Testei ainda com um cubo com mais polígonos para confirmar o problema que refer
 
 Cubo com mais vértices: [Vídeo](https://drive.google.com/file/d/1Xxt-5fU70ZuHMxY4fVt_M2x41p362fDg/view?usp=sharing)
 
-**Mudar o ponto default no script:**
+**Mudar o ponto default no *script*:**
 
-Enquanto adicionava novas *mesh*s à demo scene, apercebi-me de um novo problema.
-O ponto default para diferentes *mesh*s poderia ser diferente, no caso do plano, caso assumissemos que o focal point "nulo" é 0, 0, 0, isto acontecia:
+Enquanto adicionava novas *meshs* à demo scene, apercebi-me de um novo problema.
+O ponto default para diferentes *meshs* poderia ser diferente, no caso do plano, caso assumissemos que o *focal point* "nulo" é (0, 0, 0), isto acontecia:
 
 ![Plano com pico](https://media.discordapp.net/attachments/1163146681064357908/1192529151584899163/image.png?ex=65a96851&is=6596f351&hm=e42bdc68cfb129da3941ebf7130866f572ad3fadd3ebed9c38bc60edf732ac6a&=&format=webp&quality=lossless&width=713&height=670)
 
-Não arranjei solução correta para este problema, então alterei a posição default para um número bastante grande que assumi que muitos poucos modelos teriam, que, mais uma vez, caso fosse necessário, poderia ser alterado no script:
+Não arranjei solução correta para este problema, então alterei a posição *default* para um número bastante grande que assumi que muitos poucos modelos teriam, que, mais uma vez, caso fosse necessário, poderia ser alterado no *script*:
 
-![Script com default diferente](https://media.discordapp.net/attachments/1163146681064357908/1192530783609552926/image.png?ex=65a969d6&is=6596f4d6&hm=cedb843adf77c770e40fb04723132f200d35d72c99674b9ad1ead913555c8e29&=&format=webp&quality=lossless&width=743&height=353)
+![*Script* com default diferente](https://media.discordapp.net/attachments/1163146681064357908/1192530783609552926/image.png?ex=65a969d6&is=6596f4d6&hm=cedb843adf77c770e40fb04723132f200d35d72c99674b9ad1ead913555c8e29&=&format=webp&quality=lossless&width=743&height=353)
 
 **Demo scene final**
 
@@ -378,7 +376,7 @@ Não arranjei solução correta para este problema, então alterei a posição d
 
 ###**Conclusões finais:**
 
-Durante este trabalho ganhei bastante conhecimento sobre *shaders*, antes sentia que muitas coisas eram "magia" porque não percebia como funcionavam e também nao sabia sequer as possibilidade que um *shader* tem por serem muitas, depois disto descobri muito do que se pode fazer, e apercebi-me quão extenso é.
+Durante este trabalho ganhei bastante conhecimento sobre *shaders*, antes sentia que muitas coisas eram "magia" porque não percebia como funcionavam e também nao sabia sequer as possibilidade que um *shader* tem, por serem muitas, depois disto descobri muito do que se pode fazer, e apercebi-me quão extenso é.
 
 Relembrei-me também que não devo tentar perceber as coisas sem as questionar, se tivesse questionado a normalização e o node *fraction* mais cedo teria poupado muita dor de cabeça.
 
@@ -388,5 +386,6 @@ Aprendi também que ao gravar os objetos como prefabs ao invés de os ter apenas
 
 
 ###**Um obrigado adicional a:**
+
 - David Brás: que me ajudou em alguns conceitos iniciais para o *shader*, especialmente a compreender melhor o *Vertext Displacement*;
 - João Silva (a22004451): que me fornecer alguns modelos 3D feitos por ele com mais e menos polígonos para testar o *shader*.
