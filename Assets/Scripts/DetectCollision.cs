@@ -47,13 +47,13 @@ public class DetectCollision : MonoBehaviour
 
             float aux = material.GetFloat($"_Progression{i}");
 
-            if (aux > 0 && aux < 5)
+            if (aux > 0 && aux < 50)
             {
                 aux += 1f * frequency * Time.deltaTime;
                 material.SetFloat($"_Progression{i}", aux);
             }
 
-            if (aux >= 5)
+            if (aux >= 50)
             {
                 material.SetFloat($"_Progression{i}", 0);
                 material.SetVector($"_FocalPoint{i}", defaultFocalPoint);

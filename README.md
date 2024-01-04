@@ -263,7 +263,7 @@ Shader final com o nome ShieldCollisionEffect:
 
 ![Final shader](https://media.discordapp.net/attachments/1163146681064357908/1192491727995547778/image.png?ex=65a94577&is=6596d077&hm=477912de7a16f1910ff2e135ef32c47f4f72e842b0ffd9380fd71bb3d1b600e2&=&format=webp&quality=lossless&width=1418&height=670)
 
-Até este ponto achava que estava concluído e estava a acabar o relatório, mas estava determinado a perceber porque não funcionava em meshs diferentes de esferas, em cubos funcionava mas mal, inicialmente achei que era porque os cubos têm apenas 6 vértices, e era verdade que era por isso que a deformação da mesh era estranha, porque só deformava nos cantos:
+Até este ponto achava que estava concluído e estava a acabar o relatório, mas estava determinado a perceber porque não funcionava em mesh's diferentes de esferas, em cubos funcionava mas mal, inicialmente achei que era porque os cubos têm apenas 6 vértices, e era verdade que era por isso que a deformação da mesh era estranha, porque só deformava nos cantos:
 
 Cubo a deformar apenas nos cantos: [Vídeo](https://drive.google.com/file/d/13AGugJlws0gF5y56HlvQ78bH8QCOatkU/view?usp=sharing)
 
@@ -297,10 +297,22 @@ Com isto finalmente consegui a propagação da onda por toda a mesh:
 
 Onda completa em qualquer mesh: [Vídeo](https://drive.google.com/file/d/1jHvZ51FCers1wT5oelVwNkzbcFY49qUI/view?usp=sharing)
 
+O problema desta resolução, é que caso um objeto seja maior que 5 vai dar problemas outra vez, mudei o máximo para 50 no script, assumindo que a maior parte dos objetos não precisariam de mais, mas é um valor alteravel caso necessário a partir do script.
+
+Para terminar dei a opção ao utilizador de usar uma textura em vez do escudo e *noise* feito anteriorimente, adicionando mais duas properidades, um booleano que indica se usamos textura ou não, e uma textura, este booleano é usado como predicado antes de serem dados os valores à *Base Color*, mas mantém as ondas:
+
+![Adding texture node](https://media.discordapp.net/attachments/1163146681064357908/1192520162109304972/image.png?ex=65a95ff2&is=6596eaf2&hm=55c49bfef0e6ebb221c270dc2368f94b5affda48f82152091c15a320693ae428&=&format=webp&quality=lossless&width=1440&height=621)
+
+Resultado final: [Vídeo](https://drive.google.com/file/d/1UvbeTKdh6iq7Aym3Z0Twje2flI3Fhapl/view?usp=sharing)
+
+Shader final:
+
+![Final shader](https://media.discordapp.net/attachments/1163146681064357908/1192520969068220648/image.png?ex=65a960b2&is=6596ebb2&hm=b53aab3d4c9e501cbfdcf3fd251bedcc9fe6b4d9fef5dc8aa586c53729757954&=&format=webp&quality=lossless&width=1440&height=662)
+
+
 **Conclusões finais:**
 
 Durante este trabalho ganhei bastante conhecimento sobre shaders, antes sentia que muitas coisas eram "magia" porque não percebia como funcionavam e também nao sabia sequer as possibilidade que um shader tem por serem muitas, depois disto descobri muito do que se pode fazer, e apercebi-me quão extenso é.
-Infelizmente não consegui fazer o que pretendia de início que era fazer um shader de colisões que funcionaria em qualquer mesh.
-Para sprites ou texturas2D como num plano, não seria dificil alterar, pois ja tinha feito isso previamente e bastaria mudar as coordenadas de x y z para x z (que na prespetiva da sprite seria como um eixo x y).
-Para outras meshs não sei como faria
-aprendi também que ao gravar os objetos como prefabs ao invés de os ter apenas na *scene*, reduz imenso o tamanho que a scene ocupa no ficheiro, pois ao invés de gravar os objetos na *scene*, grava-os como ficheiro, o que foi uma grande salvação quando a *scene* tinha mais de 100mb e já estava a usar o git lfs e o github não permitia mais que isto: [Link para a discussão onde descobri isto](https://forum.unity.com/threads/git-and-unity-scene-files-larger-than-100mb.1038838/)
+Relembrei-me também que não devo tentar perceber as coisas sem as questionar, se tivesse questionado a normalização e o node *fraction* mais cedo teria poupado muita dor de cabeça
+Felizmente consegui obter o shader exatamente como queria, e ainda vejo que há muito espaço para expansão, como por exemplo adicionar a opção de textura no final, é possível adicionar muito mais coisas ainda, e penso continuar a trabalhar neste shader e em outros, pois acabei por gostar mais de shaders do que esperava.
+Aprendi também que ao gravar os objetos como prefabs ao invés de os ter apenas na *scene*, reduz imenso o tamanho que a scene ocupa no ficheiro, pois ao invés de gravar os objetos na *scene*, grava-os como ficheiro, o que foi uma grande salvação quando a *scene* tinha mais de 100mb e já estava a usar o git lfs e o github não permitia mais que isto: [Link para a discussão onde descobri isto](https://forum.unity.com/threads/git-and-unity-scene-files-larger-than-100mb.1038838/)
