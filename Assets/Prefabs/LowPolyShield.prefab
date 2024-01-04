@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2505810383172178472}
   - component: {fileID: 5221668525149036208}
   - component: {fileID: 4135829149544962148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowPolyShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}

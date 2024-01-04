@@ -225,15 +225,37 @@ No dia seguinte, por sorte, apareceu-me este vídeo, que mostrava um "museu" de 
 
 [10 Shaders in 10 Minutes - Unity Shader Graph](https://www.youtube.com/watch?v=vje0x1BNpp8&t=264s&ab_channel=DanielIlett)
 
-Com este vídeo, consegui finalmente fazer a intersecção no meu shader, ja que este recebia a baser color, e aplicava o efeito por cima da base color:
+Com este vídeo, consegui finalmente fazer a intersecção no meu shader, criando um shader, ja que este recebia a baser color, e aplicava o efeito por cima da base color:
 
+![Intersection shader](https://media.discordapp.net/attachments/1163146681064357908/1192444681775239229/image.png?ex=65a919a6&is=6596a4a6&hm=6ee4954967fee55e4b857f3f630ea27e675c0fb4334936fcb15d2901889a1a4c&=&format=webp&quality=lossless&width=1440&height=590)
 
+Primeiro comparamos a profundidade da cena, com o node *scene depth* este node dá-nos a profundidade de cada objeto que esta a ser renderizado, e usando a sample *eye* vemos esta profundidade da prespetiva da câmara, depois removemos a este valor a posição do objeto com o node *screen position*, e ficamos com um "buraco" na prespetiva da câmara, depois ao invertermos isto com um *one minus* node ficamos apenas com este "buraco" ficando com a posição do objeto.
+A variável IntersectionDepth, permite regular o tamanho da nossa interseção, usamos o node *remap*, que faz a nossa escala que seria de 0 a 1, passar a ser de 1 a 0, para que faça mais sentido, pois assim ao aumentar o valor da variavel, o tamanho da interseção aumenta:
 
+![Shader intersection 1](https://media.discordapp.net/attachments/1163146681064357908/1192447101792165938/image.png?ex=65a91be7&is=6596a6e7&hm=b832a4a3151820cb433be4e650e51db35625034bde10cea15bafbbbf5c238ab5&=&format=webp&quality=lossless&width=1440&height=580)
 
-O único ponto  negativo é que com este shader, a cor do escudo é substituida pela da intersecção, ao inv~es de ficar por cima
+Tudo até este ponto tinha visto no tutorial anterior, é neste novo vídeo que foi introduzida a diferença, ao invês de receber o valor *alpha* da cor e o inserir no campo *alpha* do nosso shader, que removia a cor do resto do escudo (o que fazia o efeito não funcionar, pois removia o escudo por inteiro), este shader faz um lerp, ou seja onde for transparente, fica com a cor do escudo, caso não seja, fica a cor da interseção.
+A variavel IntersectionStrenght permite-nos controlar o node *power* que nos dá o valor elevado a esta IntersectionStrength, que nos dá mais controlo sobre a intensidade do escudo:
 
+![Shader intersection 2](https://media.discordapp.net/attachments/1163146681064357908/1192448451980574750/image.png?ex=65a91d29&is=6596a829&hm=e30dcff84517b6b84508d16b57f42b0e8e2418d3d900f256c4c077101f5b2afe&=&format=webp&quality=lossless&width=1347&height=606)
 
+Por fim, o noise e cor da intersecção, este noise é extremamente parecido com o noise do escudo em si em termos de lógica, então não acho que precise de grande explicação, tem apenas algumas variaveis para controlar quão intenso é o movimento e quão denso é, tudo isto depois, como tinha referido, é dado a um lerp, que faz então a interpolação como referido anteriormente:
 
+![Shader intersection 3](https://media.discordapp.net/attachments/1163146681064357908/1192449163468750958/image.png?ex=65a91dd3&is=6596a8d3&hm=a0ea691d9be3193ccd6be9f9ee095e7ddfdd80d7e12f054dca749c998c1aedd2&=&format=webp&quality=lossless&width=1440&height=506)
+
+Efeito com a intersecção final: [Vídeo](https://drive.google.com/file/d/1lMxKZ_Gze4OqLL7l4T1YYEx36WJryL9M/view?usp=sharing)
+
+O único ponto  negativo é que com este shader, a cor do escudo é substituida pela da intersecção, ao invés de ficar por cima:
+
+Efeito antigo:
+
+![Old Intersection](https://cdn.discordapp.com/attachments/1163146681064357908/1192443653147344927/image.png?ex=65a918b1&is=6596a3b1&hm=cd2cf04e80ccc63a41c83077cc231dc046800f7df3cc2aafb8e4438601ba44d1&)
+
+Novo efeito:
+
+![New Intersection](https://media.discordapp.net/attachments/1163146681064357908/1192443922430046299/image.png?ex=65a918f1&is=6596a3f1&hm=49da5ae208590303f744b720d2470935ba03eee7f803f7939f943eac79d479ee&=&format=webp&quality=lossless)
+
+Para 
 
 Conclusões finais:
 

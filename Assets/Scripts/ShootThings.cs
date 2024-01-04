@@ -9,6 +9,8 @@ public class ShootThings : MonoBehaviour
     [SerializeField] private float timeBetweenShots;
     private float justShot;
 
+    [SerializeField] private float bulletSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,7 @@ public class ShootThings : MonoBehaviour
         if (Time.time - justShot > timeBetweenShots)
         {
             GameObject temp = Instantiate(shootable, transform.position, transform.rotation, transform);
-            temp.GetComponent<Rigidbody>().velocity = transform.forward * 10f;
+            temp.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
             justShot = Time.time;
         }
     }
