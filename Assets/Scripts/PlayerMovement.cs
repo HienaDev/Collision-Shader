@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 
@@ -7,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _verticalMouseSensitivity;
     [SerializeField] private float _maxHeadUpAngle;
     [SerializeField] private float _minHeadDownAngle;
+    [SerializeField] private float _movSpeed;
 
     private bool moving;
     private bool hasSpeed;
@@ -19,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
 
+        _head = Camera.main.transform;
 
         moving = true;
         hasSpeed = false;
@@ -87,8 +90,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        float x = Input.GetAxis("Forward") * 5f  * Time.deltaTime;
-        float z = Input.GetAxis("Strafe")  * 5f * Time.deltaTime;
+        float x = Input.GetAxis("Vertical") * _movSpeed  * Time.deltaTime;
+        float z = Input.GetAxis("Horizontal")  * _movSpeed * Time.deltaTime;
 
         if (x != 0 || z != 0)
         {

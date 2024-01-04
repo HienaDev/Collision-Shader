@@ -20,8 +20,8 @@ public class ShootThings : MonoBehaviour
     {
         if (Time.time - justShot > timeBetweenShots)
         {
-            GameObject temp = Instantiate(shootable, transform);
-            temp.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 10f);
+            GameObject temp = Instantiate(shootable, transform.position, transform.rotation, transform);
+            temp.GetComponent<Rigidbody>().velocity = transform.forward * 10f;
             justShot = Time.time;
         }
     }

@@ -30,7 +30,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -110,6 +110,7 @@ Material:
     - _BlendModePreserveSpecular: 1
     - _BubblingIntensity: 0.2
     - _BumpScale: 1
+    - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -123,10 +124,14 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _Float_1: 0
     - _Frequency: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _IntersectionDensity: 80
+    - _IntersectionDepth: 0.5
+    - _IntersectionMovement: 10
     - _MaskPower: 4
     - _Metallic: 0
     - _NoiseCellDensity: 30
@@ -157,7 +162,9 @@ Material:
     - _Surface: 0
     - _WaveColorStrenght: 5
     - _WorkflowMode: 1
+    - _ZTest: 4
     - _ZWrite: 1
+    - _ZWriteControl: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -172,6 +179,7 @@ Material:
     - _FocalPoint4: {r: 0, g: 0, b: 0, a: 0}
     - _FocalPoint5: {r: 0, g: 0, b: 0, a: 0}
     - _FocalPoint6: {r: 0, g: 0, b: 0, a: 0}
+    - _IntersectionColor: {r: 4, g: 2.929373, b: 0, a: 0}
     - _PatternColor: {r: 0.4525631, g: 0.6506155, b: 0.8490566, a: 0}
     - _PatternTiling: {r: 8, g: 8, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

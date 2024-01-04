@@ -164,6 +164,14 @@ Criei também uma nova esfera com mais triangulos com probuilder, para poder ter
 
 ![Pyramide Waves](https://cdn.discordapp.com/attachments/1163146681064357908/1192078095595868160/image.png?ex=65a7c43d&is=65954f3d&hm=2d5126176559c3c005c9a072d5b3798736f24e170fb83697cdc99634b45f82d2&)
 
+![Unity Sphere](https://media.discordapp.net/attachments/1163146681064357908/1191864664804556810/image.png?ex=65a6fd77&is=65948877&hm=39e46189e40ded4f4ff9519dda55b4c0cbe2eae38d982961391124be50aa06a5&=&format=webp&quality=lossless&width=527&height=411)
+
+Unity Default Sphere
+
+![Probuild Sphere](https://media.discordapp.net/attachments/1163146681064357908/1191864665236586578/image.png?ex=65a6fd77&is=65948877&hm=64c33a64b8b70deef139f2cbaf170d4eb9a74c049a19e84b551185c02b2c084c&=&format=webp&quality=lossless&width=562&height=513)
+
+ProBuild Sphere
+
 Depois disso adaptei o shader a nova esfera e fiquei com este efeito com as 7 ondas:
 
 Demonstração do efeito: [Vídeo](https://drive.google.com/file/d/18KxEmDjmmkRf2Alndq7GpWrjbjcEhu6O/view?usp=sharing)
@@ -200,3 +208,33 @@ Para isto multipliquei as ondas recebidas por uma cor que pode ser definida pelo
 
 ![Final color](https://media.discordapp.net/attachments/1163146681064357908/1192099765282951289/image.png?ex=65a7d86c&is=6595636c&hm=45a7127bdcc4f320d311ab8963348d7ca7c5ff4eca8dabb9fb6565f05aca76db&=&format=webp&quality=lossless&width=1026&height=670)
 
+Com isto feito, queria tentar fazer um efeito de intersecção da esfera com objetos na cena. 
+Para isso encontrei este video:
+
+[Unity Shader Graph - Intersection Effect Tutorial](https://www.youtube.com/watch?v=Uyw5yBFEoXo&t=260s&ab_channel=GabrielAguiarProd.)
+
+Resultado após o tutorial:
+
+![Intersection Shader](https://media.discordapp.net/attachments/1163146681064357908/1192159520517013624/image.png?ex=65a81012&is=65959b12&hm=e83f4779d99980d5ad1b72d64b7542ff233187e377d9404a5db72d1902c9f7a5&=&format=webp&quality=lossless&width=531&height=305)
+
+Apesar de conseguir replicar o efeito no video, não consegui aplicá-lo ao meu shader, decidi então deixar aqui como *honorable mention* e repliquei o efeito pretendido com duas esferas, uma com o shader de intersecão e outra com o shader de ondas:
+
+Efeito com 2 esferas: [Vídeo](https://drive.google.com/file/d/10IhK5XWkaiuZDg2ug4eO6ce0A4i8IBWy/view?usp=sharing)
+
+No dia seguinte, por sorte, apareceu-me este vídeo, que mostrava um "museu" de shaders, e neste vídeo tinha o shader do intersect outra vez, mas que funcionava de outra maneira:
+
+[10 Shaders in 10 Minutes - Unity Shader Graph](https://www.youtube.com/watch?v=vje0x1BNpp8&t=264s&ab_channel=DanielIlett)
+
+Com este vídeo, consegui finalmente fazer a intersecção no meu shader, ja que este recebia a baser color, e aplicava o efeito por cima da base color:
+
+
+
+
+O único ponto  negativo é que com este shader, a cor do escudo é substituida pela da intersecção, ao inv~es de ficar por cima
+
+
+
+
+Conclusões finais:
+
+aprendi também que ao gravar os objetos como prefabs ao invés de os ter apenas na *scene*, reduz imenso o tamanho que a scene ocupa no ficheiro, pois ao invés de gravar os objetos na *scene*, grava-os como ficheiro, o que foi uma grande salvação quando a *scene* tinha mais de 100mb e já estava a usar o git lfs e o github não permitia mais que isto: [Link para a discussão onde descobri isto](https://forum.unity.com/threads/git-and-unity-scene-files-larger-than-100mb.1038838/)

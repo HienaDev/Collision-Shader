@@ -43,7 +43,7 @@ public class DetectCollision : MonoBehaviour
         for (int i = 0; i < maxFocalPoints; i++)
         {
 
-            Debug.Log(i);
+            //Debug.Log(i);
 
             float aux = material.GetFloat($"_Progression{i}");
 
