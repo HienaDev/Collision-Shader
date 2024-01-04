@@ -25,7 +25,7 @@ public class DetectCollision : MonoBehaviour
         material = GetComponent<MeshRenderer>().material;
 
 
-        defaultFocalPoint = new Vector3(0f, 0f, 0f);
+        defaultFocalPoint = new Vector3(1000f, 1000f, 1000f);
 
         for (int i = 0; i < maxFocalPoints; i++)
         {

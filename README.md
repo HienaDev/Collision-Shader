@@ -309,6 +309,20 @@ Shader final:
 
 ![Final shader](https://media.discordapp.net/attachments/1163146681064357908/1192520969068220648/image.png?ex=65a960b2&is=6596ebb2&hm=b53aab3d4c9e501cbfdcf3fd251bedcc9fe6b4d9fef5dc8aa586c53729757954&=&format=webp&quality=lossless&width=1440&height=662)
 
+Testei ainda com um cubo com mais polígonos para confirmar o problema que fereri anteriormente, em que os cubos têm apenas 6 vértices e só deformava nos cantos, enquanto que este cubo tem mais e agora deforma como deveria:
+
+![Cube with more triangles](https://media.discordapp.net/attachments/1163146681064357908/1192524360083324988/image.png?ex=65a963db&is=6596eedb&hm=f397e1e8ec263892499b3b457dad57f7bbd0759f54765b00671a1e0b321f61d6&=&format=webp&quality=lossless&width=527&height=471)
+
+Cubo com mais vértices: [Vídeo](https://drive.google.com/file/d/1GvDimQaq8F8QRZ2qf5KRNUUQT4ohtIc6/view?usp=sharing)
+
+Enquanto adicionava novas meshs à demo scene, apercebi-me de um novo problema.
+O ponto default para diferentes meshs poderia ser diferente, no caso do plano, caso assumissemos que o focal point "nulo" é 0, 0, 0, isto acontecia:
+
+![Plano com pico](https://media.discordapp.net/attachments/1163146681064357908/1192529151584899163/image.png?ex=65a96851&is=6596f351&hm=e42bdc68cfb129da3941ebf7130866f572ad3fadd3ebed9c38bc60edf732ac6a&=&format=webp&quality=lossless&width=713&height=670)
+
+Não arranjei solução correta para este problema, então assumi a posição default com um número bastante grande que assumi que muitos poucos modelos teriam, que, mais uma vez, caso fosse necessário, poderia ser alterado no script:
+
+![Script com default diferente](https://media.discordapp.net/attachments/1163146681064357908/1192530783609552926/image.png?ex=65a969d6&is=6596f4d6&hm=cedb843adf77c770e40fb04723132f200d35d72c99674b9ad1ead913555c8e29&=&format=webp&quality=lossless&width=743&height=353)
 
 **Conclusões finais:**
 
@@ -316,3 +330,8 @@ Durante este trabalho ganhei bastante conhecimento sobre shaders, antes sentia q
 Relembrei-me também que não devo tentar perceber as coisas sem as questionar, se tivesse questionado a normalização e o node *fraction* mais cedo teria poupado muita dor de cabeça
 Felizmente consegui obter o shader exatamente como queria, e ainda vejo que há muito espaço para expansão, como por exemplo adicionar a opção de textura no final, é possível adicionar muito mais coisas ainda, e penso continuar a trabalhar neste shader e em outros, pois acabei por gostar mais de shaders do que esperava.
 Aprendi também que ao gravar os objetos como prefabs ao invés de os ter apenas na *scene*, reduz imenso o tamanho que a scene ocupa no ficheiro, pois ao invés de gravar os objetos na *scene*, grava-os como ficheiro, o que foi uma grande salvação quando a *scene* tinha mais de 100mb e já estava a usar o git lfs e o github não permitia mais que isto: [Link para a discussão onde descobri isto](https://forum.unity.com/threads/git-and-unity-scene-files-larger-than-100mb.1038838/)
+
+
+Um obrigado adicional a:
+- David Brás: que me ajudou em alguns conceitos iniciais para o shader, especialmente a compreender melhor o *Vertext Displacement*;
+- João Silva (a22004451): que me fornecer alguns modelos 3D feitos por ele com mais e menos polígonos para testar o shader.

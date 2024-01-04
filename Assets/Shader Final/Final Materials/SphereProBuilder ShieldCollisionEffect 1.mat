@@ -21,18 +21,22 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SphereProBuilder ShieldCollisionEffect 1
-  m_Shader: {fileID: -6465566751694194690, guid: 47c5214e139c7e340bc095dab2800172,
+  m_Shader: {fileID: -6465566751694194690, guid: 4b8d6d160bfffa24cad106877fca41bf,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ALPHAPREMULTIPLY_ON
+  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - DepthOnly
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -62,7 +66,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: d85d5cd4a063c4d4091998935cc99b36, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -78,6 +82,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_2468b4f266ec46379e3ad4f8a0dec612_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: d85d5cd4a063c4d4091998935cc99b36, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_f3f2a72f01004854a276a1b09988b49c_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: d85d5cd4a063c4d4091998935cc99b36, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -105,15 +113,15 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Amplitude: 0.3
-    - _Blend: 0
+    - _Amplitude: 0.15
+    - _Blend: 2
     - _BlendModePreserveSpecular: 1
     - _BubblingIntensity: 0.2
     - _BumpScale: 1
     - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Cull: 2
+    - _Cull: 0
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
@@ -121,7 +129,7 @@ Material:
     - _DotsNoiseScale: 20
     - _DotsNoiseSpeed: 30
     - _DotsSize: 1
-    - _DstBlend: 0
+    - _DstBlend: 1
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _Float_1: 0
@@ -158,13 +166,14 @@ Material:
     - _SecondIntersectionDensity: 80
     - _SecondIntersectionMovement: 10
     - _SecondIntersectionStrength: 0.3
-    - _Size: 0.1
+    - _Size: 0.05
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _Surface: 0
+    - _Surface: 1
+    - _Texture: 0
     - _ThirdIntersectionDensity: 80
     - _ThirdIntersectionDepth: 0.3
     - _ThirdIntersectionMovement: 10
@@ -172,7 +181,7 @@ Material:
     - _WaveColorStrenght: 20
     - _WorkflowMode: 1
     - _ZTest: 4
-    - _ZWrite: 1
+    - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
@@ -189,7 +198,7 @@ Material:
     - _FocalPoint5: {r: 0, g: 0, b: 0, a: 0}
     - _FocalPoint6: {r: 0, g: 0, b: 0, a: 0}
     - _IntersectionColor: {r: 4, g: 2.929373, b: 0, a: 0}
-    - _PatternColor: {r: 0.4525631, g: 0.6506155, b: 0.8490566, a: 0}
+    - _PatternColor: {r: 0, g: 0.38627818, b: 0.764151, a: 1}
     - _PatternTiling: {r: 10, g: 10, b: 0, a: 0}
     - _SecondIntersectionColor: {r: 0.7735849, g: 0.4844728, b: 0.2225881, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
