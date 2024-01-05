@@ -389,3 +389,15 @@ Aprendi também que ao gravar os objetos como prefabs ao invés de os ter apenas
 
 - David Brás: que me ajudou em alguns conceitos iniciais para o *shader*, especialmente a compreender melhor o *Vertext Displacement*;
 - João Silva (a22004451): que me fornecer alguns modelos 3D feitos por ele com mais e menos polígonos para testar o *shader*.
+
+### **Bibliografia:**
+
+- [*Shader* Graph Forcefield: Update](https://www.youtube.com/watch?v=P47yMdetoE4&ab_channel=WilmerLinGASchool) por Wilmer Lin GA School (17/07/2020)
+- [Energy Shield Effect in Unity URP *Shader* Graph](https://www.youtube.com/watch?v=o4CGL2YXs5k&ab_channel=Imphenzia) por Imphenzia (20/04/2023)
+- [Shockwave *Shader* Graph - How to make a shock wave *shader* in Unity URP/HDRP](https://www.youtube.com/watch?v=dFDAwT5iozo&ab_channel=GameDevBill) por GameDevBill (08/12/2020)
+- [Unity *Shader* Graph VFX - Bubble Shield (Tutorial)](https://www.youtube.com/watch?v=jdAbVkre8cw&ab_channel=ABitOfGameDev) por A Bit Of Game Dev (08/09/2021)
+- [Unity *Shader* Graph - Sci-Fi Barrier / Shield Tutorial](https://www.youtube.com/watch?v=rB4YMQmO8Mw&t=3s&ab_channel=GabrielAguiarProd.) por Gabriel Aguiar Prod. (06/09/2022)
+- [Unity *Shader* Graph - Intersection Effect Tutorial](https://www.youtube.com/watch?v=Uyw5yBFEoXo&t=260s&ab_channel=GabrielAguiarProd.) por Gabriel Aguiar Prod. (13/06/2023)
+- [10 *Shaders* in 10 Minutes - Unity *Shader* Graph](https://www.youtube.com/watch?v=vje0x1BNpp8&t=264s&ab_channel=DanielIlett) por Daniel Ilett (03/04/2022)
+- [Tree Model](https://sketchfab.com/3d-models/tree-c25e5fc2bfa54d24a165a8a207c0a6d7) "Tree" (https://skfb.ly/onxWu) por Epic_Tree_Store está licenciado sob Creative Commons Atribuição (http://creativecommons.org/licenses/by/4.0/).
+- [Statue Model](https://sketchfab.com/3d-models/statue-ecd586875a8845cebb74aa9ea11756ed) "Statue" (https://skfb.ly/opuMP) por DJMaesen está licenciado sob Creative Commons Atribuição (http://creativecommons.org/licenses/by/4.0/).

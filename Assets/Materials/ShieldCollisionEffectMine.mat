@@ -30,8 +30,9 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -110,6 +111,7 @@ Material:
     - _BlendModePreserveSpecular: 1
     - _BubblingIntensity: 0.2
     - _BumpScale: 1
+    - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -120,13 +122,22 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _Float_1: 0
     - _Frequency: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _IntersectionDensity: 80
+    - _IntersectionDepth: 0.9
+    - _IntersectionMovement: 10
+    - _IntersectionStrength: 0.3
     - _Metallic: 0
+    - _NoiseCellDensity: 30
+    - _NoiseCellMovementSpeed: 2
+    - _NoiseCellRotationSpeed: 0.1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _PatternChange: 10
     - _Progression: 0
     - _Progression0: 1
     - _Progression1: 0.95
@@ -138,6 +149,10 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _SecondIntersectinoDepth: 0.6
+    - _SecondIntersectionDensity: 80
+    - _SecondIntersectionMovement: 10
+    - _SecondIntersectionStrength: 0.3
     - _Size: 0.01
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -145,8 +160,16 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
+    - _Texture: 0
+    - _ThirdIntersectionDensity: 80
+    - _ThirdIntersectionDepth: 0.3
+    - _ThirdIntersectionMovement: 10
+    - _ThirdIntersectionStrength: 0.3
+    - _WaveColorStrenght: 5
     - _WorkflowMode: 1
+    - _ZTest: 4
     - _ZWrite: 1
+    - _ZWriteControl: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -159,5 +182,11 @@ Material:
     - _FocalPoint4: {r: 0, g: 0, b: 0, a: 0}
     - _FocalPoint5: {r: 0, g: 0, b: 0, a: 0}
     - _FocalPoint6: {r: 0, g: 0, b: 0, a: 0}
+    - _IntersectionColor: {r: 0.5283019, g: 0.3902301, b: 0.03737985, a: 0}
+    - _PatternColor: {r: 0.4525631, g: 0.6506155, b: 0.8490566, a: 0}
+    - _PatternTiling: {r: 8, g: 8, b: 0, a: 0}
+    - _SecondIntersectionColor: {r: 0.7735849, g: 0.4844728, b: 0.2225881, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _ThirdIntersectionColor: {r: 0.8396226, g: 0.08317016, b: 0.09845755, a: 0}
+    - _WaveColor: {r: 4, g: 2.965518, b: 0, a: 0}
   m_BuildTextureStacks: []
