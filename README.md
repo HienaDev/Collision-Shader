@@ -387,8 +387,8 @@ Aprendi também que ao gravar os objetos como prefabs ao invés de os ter apenas
 
 ### **Um obrigado adicional a:**
 
-- David Brás: que me ajudou em alguns conceitos iniciais para o *shader*, especialmente a compreender melhor o *Vertext Displacement*;
-- João Silva (a22004451): que me fornecer alguns modelos 3D feitos por ele com mais e menos polígonos para testar o *shader*.
+- David Brás: qpor me ajudar em alguns conceitos iniciais para o *shader*, especialmente a compreender melhor o *Vertext Displacement*;
+- João Silva (a22004451): por me fornecer alguns modelos 3D feitos por ele com mais e menos polígonos para testar o *shader*.
 
 ### **Bibliografia:**
 
