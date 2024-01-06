@@ -8,11 +8,15 @@
 
 ![Statue *Shader* Image](https://media.discordapp.net/attachments/1163146681064357908/1192533465514659860/image.png?ex=65a96c56&is=6596f756&hm=c1d430a52cb90e5e1debdd698e18545244981b8fa28d39f2533aeee5b013e5a4&=&format=webp&quality=lossless&width=403&height=670)
 
-## Trabalho realizdo por:
+## **Trabalho realizado por:**
 
 - António Rodrigues - a22202884.
 
-## Relatório:
+## **Link para repositório:**
+
+https://github.com/HienaDev/Collision-Shader?tab=readme-ov-file 
+
+## **Relatório:**
 
 Comecei por procurar o “óbvio” e pesquisar como fazer um *shader* que reagia a colisões, com isso encontrei dois videos:
 
