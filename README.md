@@ -14,7 +14,7 @@
 
 ## **Link para repositório:**
 
-https://github.com/HienaDev/Collision-Shader?tab=readme-ov-file 
+https://github.com/HienaDev/Collision-Shader 
 
 ## **Relatório:**
 
